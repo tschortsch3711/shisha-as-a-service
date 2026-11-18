@@ -571,8 +571,8 @@ const pin = (x, y) => `<rect class="pin" x="${x - 17}" y="${y - 17}" width="34" 
 const endSq = (x, y) => `<rect class="end" x="${x - 8}" y="${y - 8}" width="16" height="16"/>`;
 
 function routeHorizontal() {
-  const W = 1000, H = 310, Y = 150, X0 = 160, X1 = 820, GAP = 18;
-  const items = visible().map(b => ({ b, t: ratio(b) })).sort((a, c) => a.t - c.t)
+  const W = 1000, H = 310, Y = 150, X0 = 180, X1 = 840, GAP = 18;
+  const items = visible().map(b => ({ b, t: 1 - ratio(b) })).sort((a, c) => a.t - c.t)
     .map((it, i) => ({ ...it, x: X0 + it.t * (X1 - X0), row: i % 2 ? 1 : -1, w: 46 + Math.max((it.b.short || it.b.name).length * 8.4, 140) }));
   for (const row of [-1, 1]) {
     const r = items.filter(it => it.row === row);
@@ -592,21 +592,21 @@ function routeHorizontal() {
         ${pin(lx, ly)}
         <text class="num" x="${lx}" y="${ly + 5}" text-anchor="middle">${b.nr}</text>
         <text class="name" x="${lx + 26}" y="${ly - 1}">${esc(b.short || b.name)}${b.fav ? '<tspan class="favt"> ★</tspan>' : ''}</text>
-        <text class="sub" x="${lx + 26}" y="${ly + 16}">F ${b.fromFreising.min} Min. · ${O().short} ${dur(b).min} Min.</text>
+        <text class="sub" x="${lx + 26}" y="${ly + 16}">${O().short} ${dur(b).min} Min. · F ${b.fromFreising.min} Min.</text>
       </a>`;
   }
   const mx = (X0 + X1) / 2;
   return `
-  <svg class="b-svg b-svg-h" viewBox="0 0 ${W} ${H}" role="group" aria-label="Strecke Freising nach ${O().name} mit den Bars nach Fahrzeit-Verhältnis">
+  <svg class="b-svg b-svg-h" viewBox="0 0 ${W} ${H}" role="group" aria-label="Strecke ${O().name} nach Freising mit den Bars nach Fahrzeit-Verhältnis">
     <line class="midline faint" x1="${mx}" y1="${Y - 30}" x2="${mx}" y2="${Y + 30}"/>
     ${stems}
     <text class="mid" x="${mx}" y="${Y + 46}" text-anchor="middle">Mitte</text>
     <line class="road" x1="${X0}" y1="${Y}" x2="${X1}" y2="${Y}"/>
     ${endSq(X0, Y)}${endSq(X1, Y)}
-    <text class="city" x="${X0 - 18}" y="${Y + 2}" text-anchor="end">Freising</text>
-    <text class="who" x="${X0 - 18}" y="${Y + 20}" text-anchor="end">ich</text>
-    <text class="city" x="${X1 + 18}" y="${Y + 2}">${O().name}</text>
-    <text class="who" x="${X1 + 18}" y="${Y + 20}">du</text>
+    <text class="city" x="${X0 - 18}" y="${Y + 2}" text-anchor="end">${O().name}</text>
+    <text class="who" x="${X0 - 18}" y="${Y + 20}" text-anchor="end">du</text>
+    <text class="city" x="${X1 + 18}" y="${Y + 2}">Freising</text>
+    <text class="who" x="${X1 + 18}" y="${Y + 20}">ich</text>
     ${ticks}
     ${pts}
   </svg>`;
@@ -631,7 +631,7 @@ function routeVertical() {
         ${pin(cx, y)}
         <text class="num" x="${cx}" y="${y + 5}" text-anchor="middle">${b.nr}</text>
         <text class="name" x="${cx + 26}" y="${y - 1}">${esc(b.short || b.name)}${b.fav ? '<tspan class="favt"> ★</tspan>' : ''}</text>
-        <text class="sub" x="${cx + 26}" y="${y + 16}">F ${b.fromFreising.min} Min. · ${O().short} ${dur(b).min} Min.</text>
+        <text class="sub" x="${cx + 26}" y="${y + 16}">${O().short} ${dur(b).min} Min. · F ${b.fromFreising.min} Min.</text>
       </a>`;
   });
   const my = (YT + YB) / 2;
