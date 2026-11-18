@@ -64,6 +64,8 @@
   .origin-btn { font: inherit; font-size: 14px; font-weight: 650; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--g-dark); cursor: pointer; }
   .origin-btn[aria-pressed="true"] { background: var(--g); border-color: var(--g); color: #fff; }
   @media (max-width: 420px) { .origin-btn { padding: 6px 11px; font-size: 13.5px; } .origin { gap: 6px; } }
+  .home { margin: 6px 0 0; font-size: 13px; color: var(--muted); }
+  .home b { color: var(--ink); }
   .svc { margin-top: 12px; }
   .svc-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
   @media (min-width: 700px) { .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -192,14 +194,14 @@
 </head>
 <body>
 <div id="app"></div>
-<noscript><p style="padding:20px">Diese Seite braucht JavaScript. Kurz gesagt: 1 MOG‘ 68 Moosburg, 2 Towers Landshut, 3 Dejavu Lounge Landshut, 4 Illyrian Lounge Abensberg.</p></noscript>
+<noscript><p style="padding:20px">Diese Seite braucht JavaScript. Kurz gesagt, ab Regensburg: 1 MOG‘ 68 Moosburg, 2 Towers Landshut, 3 Dejavu Lounge Landshut, 4 Illyrian Lounge Abensberg. Ab Unterschleißheim: 1 MOG‘ 68 Moosburg, 2 Towers Landshut, 5 Helleaven Erding, 6 Zer021 Neufahrn.</p></noscript>
 <script>
 /* =====================================================================
    DATEN: alle Varianten rendern aus diesem Array.
    ===================================================================== */
 const BARS = [
   {
-    id: 'towers', fav: true, nr: 1, name: 'Towers Landshut', ort: 'Landshut',
+    id: 'towers', fav: true, sets: ['regensburg', 'ush'], nr: 1, name: 'Towers Landshut', ort: 'Landshut',
     rating: 4.7, count: 234, preis: '$$', doOpen: '16:00', doClose: '01:00',
     fromFreising: { min: 31, km: 39 }, fromRegensburg: { min: 46, km: 66 }, fromUSH: { min: 42, km: 57 },
     adresse: 'Luitpoldstraße 30A, 84034 Landshut',
@@ -218,7 +220,7 @@ const BARS = [
     lat: 48.5401, lng: 12.1421,
   },
   {
-    id: 'dejavu', nr: 2, name: 'Dejavu Lounge', ort: 'Landshut, Altstadt',
+    id: 'dejavu', sets: ['regensburg'], nr: 2, name: 'Dejavu Lounge', ort: 'Landshut, Altstadt',
     rating: 4.1, count: 184, preis: '$$', doOpen: '17:00', doClose: '02:00',
     fromFreising: { min: 35, km: 41 }, fromRegensburg: { min: 47, km: 66 }, fromUSH: { min: 45, km: 59 },
     adresse: 'Steckengasse 306, 84028 Landshut',
@@ -236,7 +238,7 @@ const BARS = [
     lat: 48.5356, lng: 12.1531,
   },
   {
-    id: 'illyrian', nr: 3, name: 'Illyrian Lounge & Bar', ort: 'Abensberg-Aumühle',
+    id: 'illyrian', sets: ['regensburg'], nr: 3, name: 'Illyrian Lounge & Bar', ort: 'Abensberg-Aumühle',
     rating: 5.0, count: 25, preis: '$$', doOpen: '19:00', doClose: '23:00',
     fromFreising: { min: 55, km: 68 }, fromRegensburg: { min: 31, km: 39 }, fromUSH: { min: 58, km: 76 },
     adresse: 'Weinbergerstraße 2, 93326 Abensberg-Aumühle',
@@ -254,7 +256,7 @@ const BARS = [
     lat: 48.8155, lng: 11.8463,
   },
   {
-    id: 'mog68', nr: 5, name: 'MOG‘ 68 Shishabar', ort: 'Moosburg an der Isar',
+    id: 'mog68', sets: ['regensburg', 'ush'], nr: 5, name: 'MOG‘ 68 Shishabar', ort: 'Moosburg an der Isar',
     rating: 5.0, count: 158, preis: '', doOpen: '17:00', doClose: '01:00',
     fromFreising: { min: 20, km: 18 }, fromRegensburg: { min: 56, km: 84 }, fromUSH: { min: 33, km: 43 },
     adresse: 'Herrnstraße, 85368 Moosburg an der Isar',
@@ -269,6 +271,42 @@ const BARS = [
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=MOG%2068%20Shishabar%20Herrnstra%C3%9Fe%2085368%20Moosburg',
     webUrl: '', webLabel: '',
     lat: 48.4677, lng: 11.9372,
+  },
+  {
+    id: 'zer021', sets: ['ush'], nr: 0, name: 'Zer021', ort: 'Neufahrn bei Freising',
+    rating: 4.5, count: 215, preis: '', doOpen: '18:00', doClose: '',
+    fromFreising: { min: 18, km: 15 }, fromRegensburg: { min: 68, km: 107 }, fromUSH: { min: 17, km: 12 },
+    adresse: 'Am Hart 1a, 85375 Neufahrn bei Freising',
+    chips: [],
+    gut: [
+      { text: 'Die beste Shisha Bar in der Umgebung.', quelle: 'Philipp E., Google, vor ca. 7 Monaten' },
+    ],
+    kritisch: [
+      { text: 'Standen vor verschlossener Türe, obwohl laut Google geöffnet.', quelle: 'Maria S., Google, vor ca. 1 Monat' },
+    ],
+    hinweis: 'Zuletzt standen zwei Gäste trotz Google-Zeiten vor verschlossener Tür. Ich rufe vorher an.',
+    img: 'img/zer021.jpg', alt: 'Eingang der Zer021 Shisha-Bar-Lounge in Neufahrn mit Terrasse',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Zer021%20Am%20Hart%201a%2085375%20Neufahrn%20bei%20Freising',
+    webUrl: '', webLabel: '',
+    lat: 48.3105, lng: 11.6582,
+  },
+  {
+    id: 'helleaven', sets: ['ush'], nr: 0, name: 'Helleaven Cocktail & Shishabar', short: 'Helleaven', ort: 'Erding',
+    rating: 4.8, count: 566, preis: '', doOpen: '17:00', doClose: '00:00',
+    fromFreising: { min: 24, km: 21 }, fromRegensburg: { min: 72, km: 107 }, fromUSH: { min: 35, km: 35 },
+    adresse: 'Landshuter Str. 9, 85435 Erding',
+    chips: [],
+    gut: [
+      { text: 'Diese Shishabar ist schon ein anderes Kaliber.', quelle: 'Andreas R., Google, vor ca. 1 Monat' },
+    ],
+    kritisch: [
+      { text: 'Equipment hat schon bessere Tage gesehen aber draußen sitzen ist klasse', quelle: 'Google, Auszug aus einer Rezension' },
+    ],
+    hinweis: 'Liegt eher Richtung Flughafen, dein Heimweg wird etwas länger.',
+    img: 'img/helleaven.jpg', alt: 'Innenraum der Helleaven Shishabar in Erding mit roten Samtsesseln und Pflanzenwand',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Helleaven%20Cocktail%20%26%20Shishabar%20Landshuter%20Str.%209%2085435%20Erding',
+    webUrl: 'https://helleaven-erding.de/', webLabel: 'Website',
+    lat: 48.3063, lng: 11.9096,
   },
 ];
 
@@ -300,11 +338,15 @@ const dur = b => b[O().key];
 const ratio = b => b.fromFreising.min / (b.fromFreising.min + dur(b).min);
 // Nummern laufen entlang der Strecke Freising - Regensburg und bleiben beim Umschalten gleich
 const ratioR = b => b.fromFreising.min / (b.fromFreising.min + b.fromRegensburg.min);
-BARS.sort((a, b) => ratioR(a) - ratioR(b)).forEach((b, i) => { b.nr = i + 1; });
+const inR = BARS.filter(b => b.sets.includes('regensburg')).sort((a, b) => ratioR(a) - ratioR(b));
+const onlyU = BARS.filter(b => !b.sets.includes('regensburg'))
+  .sort((a, b) => a.fromFreising.min / (a.fromFreising.min + a.fromUSH.min) - b.fromFreising.min / (b.fromFreising.min + b.fromUSH.min));
+[...inR, ...onlyU].forEach((b, i) => { b.nr = i + 1; });
+const visible = () => BARS.filter(b => b.sets.includes(origin)).sort((a, b) => a.nr - b.nr);
 
 const late = b => isLate(b) ? `<span class="late">erst ab ${hour(b.doOpen)} Uhr</span>` : '';
 const stars = b => `<span class="stars"><span class="s" aria-hidden="true">★</span> ${de(b.rating)}<span class="sr"> von 5 Sternen</span></span>`;
-const doTimes = b => `${esc(b.doOpen)}-${esc(b.doClose)}`;
+const doTimes = b => b.doClose ? `${esc(b.doOpen)}-${esc(b.doClose)}` : `ab ${esc(b.doOpen)}`;
 
 function media(b, extra = '') {
   const ph = `<div class="ph" aria-hidden="true"><span class="ph-ort">${esc(b.ort)}</span><small>Fotos auf Google Maps</small></div>`;
@@ -344,8 +386,8 @@ const footer = () => `
 function routeHorizontal() {
   const W = 1000, H = 310, Y = 150, X0 = 160, X1 = 820, GAP = 18;
   // Punkte nach Fahrzeit-Verhältnis, Beschriftungen abwechselnd oben/unten, pro Reihe auseinandergeschoben.
-  const items = BARS.map(b => ({ b, t: ratio(b) })).sort((a, c) => a.t - c.t)
-    .map((it, i) => ({ ...it, x: X0 + it.t * (X1 - X0), row: i % 2 ? 1 : -1, w: 46 + Math.max(it.b.name.length * 8.4, 140) }));
+  const items = visible().map(b => ({ b, t: ratio(b) })).sort((a, c) => a.t - c.t)
+    .map((it, i) => ({ ...it, x: X0 + it.t * (X1 - X0), row: i % 2 ? 1 : -1, w: 46 + Math.max((it.b.short || it.b.name).length * 8.4, 140) }));
   for (const row of [-1, 1]) {
     const r = items.filter(it => it.row === row);
     r.forEach((it, i) => { it.lx = Math.max(it.x, 26, i ? r[i - 1].lx + r[i - 1].w + GAP : 0); });
@@ -363,7 +405,7 @@ function routeHorizontal() {
       <a href="#b-card-${b.nr}" class="b-pt" data-nr="${b.nr}" aria-label="${b.nr}, ${esc(b.name)}${b.fav ? ', mein Favorit' : ''}: ${b.fromFreising.min} Minuten ab Freising, ${dur(b).min} Minuten ab ${O().name}. Zur Bar springen.">
         <circle cx="${lx}" cy="${ly}" r="17"/>
         <text class="num" x="${lx}" y="${ly + 5}" text-anchor="middle">${b.nr}</text>
-        <text class="name" x="${lx + 26}" y="${ly - 1}">${esc(b.name)}${b.fav ? '<tspan class="favt"> ★</tspan>' : ''}</text>
+        <text class="name" x="${lx + 26}" y="${ly - 1}">${esc(b.short || b.name)}${b.fav ? '<tspan class="favt"> ★</tspan>' : ''}</text>
         <text class="sub" x="${lx + 26}" y="${ly + 16}">F ${b.fromFreising.min} Min. · ${O().short} ${dur(b).min} Min.</text>
       </a>`;
   }
@@ -387,7 +429,7 @@ function routeHorizontal() {
 function routeVertical() {
   const W = 360, H = 620, X = 70, YT = 70, YB = 550, GAP = 50;
   // Startort des Gegenübers oben, Freising unten
-  const items = BARS.map(b => ({ b, y: YB - ratio(b) * (YB - YT) })).sort((a, c) => a.y - c.y);
+  const items = visible().map(b => ({ b, y: YB - ratio(b) * (YB - YT) })).sort((a, c) => a.y - c.y);
   const ly = items.map(it => it.y);
   for (let i = 1; i < ly.length; i++) ly[i] = Math.max(ly[i], ly[i - 1] + GAP);
   for (let i = ly.length - 1; i >= 0; i--) {
@@ -403,7 +445,7 @@ function routeVertical() {
       <a href="#b-card-${b.nr}" class="b-pt" data-nr="${b.nr}" aria-label="${b.nr}, ${esc(b.name)}${b.fav ? ', mein Favorit' : ''}: ${b.fromFreising.min} Minuten ab Freising, ${dur(b).min} Minuten ab ${O().name}. Zur Bar springen.">
         <circle cx="${cx}" cy="${y}" r="17"/>
         <text class="num" x="${cx}" y="${y + 5}" text-anchor="middle">${b.nr}</text>
-        <text class="name" x="${cx + 26}" y="${y - 1}">${esc(b.name)}${b.fav ? '<tspan class="favt"> ★</tspan>' : ''}</text>
+        <text class="name" x="${cx + 26}" y="${y - 1}">${esc(b.short || b.name)}${b.fav ? '<tspan class="favt"> ★</tspan>' : ''}</text>
         <text class="sub" x="${cx + 26}" y="${y + 16}">F ${b.fromFreising.min} Min. · ${O().short} ${dur(b).min} Min.</text>
       </a>`;
   });
@@ -423,7 +465,7 @@ function routeVertical() {
 }
 
 function renderB(app) {
-  const cards = BARS.map(b => {
+  const cards = visible().map(b => {
     const k = b.fromFreising.min, r = dur(b).min;
     return `
     <article class="b-card" id="b-card-${b.nr}" tabindex="-1">
@@ -434,6 +476,7 @@ function renderB(app) {
         <div>
           <div class="split-lbl"><span>ab Freising <b>${k} Min.</b></span><span>ab ${O().name} <b>${r} Min.</b></span></div>
           <div class="split" aria-hidden="true"><span class="sk" style="flex:${k}"></span><span class="sr2" style="flex:${r}"></span></div>
+          ${origin === 'ush' ? `<p class="home">Heimweg nach Regensburg: <b>${b.fromRegensburg.min} Min.</b></p>` : ''}
         </div>
         ${b.gut[0] ? quote(b.gut[0], false) : '<div></div>'}
         ${b.kritisch[0] ? quote(b.kritisch[0], true) : `<p class="q none">Keine kritische Stimme gefunden.</p>`}
@@ -452,6 +495,7 @@ function renderB(app) {
         <span class="origin-lbl">Dein Start:</span>
         ${Object.entries(ORIGINS).map(([k, o]) => `<button type="button" class="origin-btn" data-origin="${k}" aria-pressed="${k === origin}">${o.name}</button>`).join('')}
       </div>
+      ${origin === 'ush' ? '<p class="hint">Ab Unterschleißheim zeige ich andere Bars: in der Mitte oder eher Richtung Regensburg, damit dein Heimweg kurz bleibt.</p>' : ''}
       <div class="b-route">
         ${routeHorizontal()}
         ${routeVertical()}
