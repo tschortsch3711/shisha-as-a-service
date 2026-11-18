@@ -1,4 +1,4 @@
-# Shisha as a Service
+# Shisha-as-a-Service
 
 Kleine statische Seite mit Shisha-Bar-Vorschlägen (je vier, abhängig vom Startort) für ein Treffen am Donnerstag, 19.11.2026, irgendwo zwischen Freising und Regensburg.
 
