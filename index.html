@@ -668,8 +668,8 @@ function renderB(app) {
         <div class="b-title"><span class="nr">${b.nr}</span><div><h3>${esc(b.name)}</h3><small>${esc(b.ort)}</small></div></div>
         <div class="b-meta">${stars(b)} <span class="cnt">${b.count} Bewertungen</span></div>
         <div>
-          <div class="split-lbl"><span class="k">ab Freising <b>${k} Min.</b></span><span class="r">ab ${O().name} <b>${r} Min.</b></span></div>
-          <div class="split" aria-hidden="true"><span class="sk" style="flex:${k}"></span><span class="sr2" style="flex:${r}"></span></div>
+          <div class="split-lbl"><span class="r">ab ${O().name} <b>${r} Min.</b></span><span class="k">ab Freising <b>${k} Min.</b></span></div>
+          <div class="split" aria-hidden="true"><span class="sr2" style="flex:${r}"></span><span class="sk" style="flex:${k}"></span></div>
           ${origin === 'ush' ? `<p class="home">Heimweg nach Regensburg: <b>${b.fromRegensburg.min} Min.</b></p>` : ''}
         </div>
         ${b.gut[0] ? quote(b.gut[0], false) : '<div></div>'}
