@@ -10,7 +10,7 @@ Live: https://tschortsch3711.github.io/shisha-as-a-service/
 
 - Oben eine Strecke Freising ↔ Regensburg: Jede Bar sitzt dort, wo sich die Fahrzeit für beide aufteilt. Die Nummern laufen entlang dieser Strecke.
 - Umschalter „Dein Start“: Regensburg oder Unterschleißheim (Link direkt auf Unterschleißheim: `?ab=unterschleissheim`).
-- Ab Regensburg: MOG‘ 68, Towers, Dejavu, Illyrian (Nr. 1–4). Ab Unterschleißheim: MOG‘ 68, Towers, Helleaven (Erding), Zer021 (Neufahrn), mit Heimweg nach Regensburg. Jede Nummer ist eindeutig (1–6), welche Bars wo erscheinen, steht im Feld `sets`.
+- Ab Regensburg: MOG’ 68, Towers, Dejavu, Illyrian (Nr. 1–4). Ab Unterschleißheim: MOG’ 68, Towers, Helleaven (Erding), Zer021 (Neufahrn), mit Heimweg nach Regensburg. Jede Nummer ist eindeutig (1–6), welche Bars wo erscheinen, steht im Feld `sets`.
 - Darunter die Karten, am Desktop nebeneinander (Zeilen über alle Karten ausgerichtet), auf dem Handy untereinander.
 - Ganz unten ein kleiner Service-Check zum Augenzwinkern.
 - Alle Daten stehen im Array `BARS` oben im Script von `index.html`.
@@ -35,11 +35,11 @@ Danach `http://localhost:8080` aufrufen.
 
 - Towers-Zitate: Google, wiedergegeben auf localgermany.net
 - Dejavu-Zitate: von Google hervorgehobene Auszüge (ohne Anmeldung zeigt Google nur wenige Rezensionen, die meist den Lieferdienst betreffen)
-- Illyrian-, MOG‘ 68-, Helleaven- und Zer021-Zitate: direkt aus Google Maps (Stand 18.11.2026)
+- Illyrian-, MOG’ 68-, Helleaven- und Zer021-Zitate: direkt aus Google Maps (Stand 18.11.2026)
 - Zer021: Zwei Rezensionen von Oktober 2026 berichten von geschlossener Tür trotz Google-Zeiten; die bei Google eingetragene Website ist ein Verzeichnis und wird nicht verlinkt
 - Helleaven: Öffnungszeiten laut eigener Website (So–Do 17–24 Uhr)
 - Alle Namen der Rezensenten gekürzt
-- Links: Towers und Illyrian haben laut Google-Profil nur Facebook bzw. Instagram; die bei Dejavu eingetragene Website ist nicht mehr erreichbar; MOG‘ 68 hat keine Website
+- Links: Towers und Illyrian haben laut Google-Profil nur Facebook bzw. Instagram; die bei Dejavu eingetragene Website ist nicht mehr erreichbar; MOG’ 68 hat keine Website
 - Öffnungszeiten Do laut Google Maps (Stand 18.11.2026)
 - Fahrzeiten: Näherungswerte über OpenStreetMap/OSRM ab den Ortsmitten Freising, Regensburg und Unterschleißheim, ohne Live-Verkehr
 

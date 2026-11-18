@@ -57,7 +57,7 @@
   p, blockquote, figcaption, .svc-item span, .split-lbl { text-wrap: pretty; }
   h1 { margin: 0 0 10px; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.08; letter-spacing: -.03em; }
   .intro { margin: 0; font-size: 1.05rem; color: #F0F7F2; }
-  .fav-badge { position: absolute; z-index: 2; left: 10px; top: 10px; background: #fff; color: var(--g-dark); border-radius: 999px; padding: 4px 10px; font-size: 12.5px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+  .fav-badge { position: absolute; z-index: 2; right: 10px; top: 10px; background: #fff; color: var(--g-dark); border-radius: 999px; padding: 4px 10px; font-size: 12.5px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
   .b-svg .favt { fill: #B07A00; }
   .origin { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 0 0 12px; }
   .origin-lbl { font-size: 14px; color: var(--muted); margin-right: 2px; }
@@ -66,6 +66,8 @@
   @media (max-width: 420px) { .origin-btn { padding: 6px 11px; font-size: 13.5px; } .origin { gap: 6px; } }
   .home { margin: 6px 0 0; font-size: 13px; color: var(--muted); }
   .home b { color: var(--ink); }
+  .b-meta .do { font-weight: 650; }
+  .cta { margin: 18px 0 0; font-size: 1.05rem; font-weight: 650; color: var(--g-dark); }
   .svc { margin-top: 12px; }
   .svc-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
   @media (min-width: 700px) { .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -121,7 +123,7 @@
   .b-svg text { font-family: Inter, "Segoe UI", Arial, sans-serif; fill: var(--ink); }
   .b-svg .city { font-weight: 700; font-size: 17px; }
   .b-svg .who { font-size: 13px; fill: var(--muted); }
-  .b-svg .mid { font-size: 12px; fill: var(--muted); font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+  .b-svg .mid { font-size: 12px; fill: var(--muted); font-weight: 650; letter-spacing: .08em; text-transform: uppercase; paint-order: stroke; stroke: #fff; stroke-width: 5px; stroke-linejoin: round; }
   .b-svg .road { stroke: var(--g-dark); stroke-width: 6; stroke-linecap: round; }
   .b-svg .midline { stroke: var(--muted); stroke-width: 2; stroke-dasharray: 4 4; }
   .b-svg .midline.faint { stroke: #B9C6BE; }
@@ -140,7 +142,7 @@
   .b-svg-v .b-pt .sub { font-size: 14.5px; }
   .b-svg-v .city { font-size: 19px; }
   .b-cap { font-size: 13px; color: var(--muted); margin: 6px 4px 6px; }
-  .wrap { max-width: 1440px; }
+  .wrap { max-width: 1200px; }
   .b-svg-h { max-width: 1060px; margin: 0 auto; }
   .b-cards { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
   @media (min-width: 700px) { .b-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -167,7 +169,7 @@
       .b-card .tiny { margin-top: 0; }
     }
   }
-  .q.none { background: var(--paper); border-left-color: var(--line); color: var(--muted); font-size: 13px; }
+  .q.none { background: none; border-left: 0; padding: 2px 0; color: var(--muted); font-size: 13px; font-style: italic; }
   .b-card {
     background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden;
     display: flex; flex-direction: column; scroll-margin-top: 16px; transition: box-shadow .2s;
@@ -194,7 +196,7 @@
 </head>
 <body>
 <div id="app"></div>
-<noscript><p style="padding:20px">Diese Seite braucht JavaScript. Kurz gesagt, ab Regensburg: 1 MOG‘ 68 Moosburg, 2 Towers Landshut, 3 Dejavu Lounge Landshut, 4 Illyrian Lounge Abensberg. Ab Unterschleißheim: 1 MOG‘ 68 Moosburg, 2 Towers Landshut, 5 Helleaven Erding, 6 Zer021 Neufahrn.</p></noscript>
+<noscript><p style="padding:20px">Diese Seite braucht JavaScript. Kurz gesagt, ab Regensburg: 1 MOG’ 68 Moosburg, 2 Towers Landshut, 3 Dejavu Lounge Landshut, 4 Illyrian Lounge Abensberg. Ab Unterschleißheim: 1 MOG’ 68 Moosburg, 2 Towers Landshut, 5 Helleaven Erding, 6 Zer021 Neufahrn.</p></noscript>
 <script>
 /* =====================================================================
    DATEN: alle Varianten rendern aus diesem Array.
@@ -256,7 +258,7 @@ const BARS = [
     lat: 48.8155, lng: 11.8463,
   },
   {
-    id: 'mog68', sets: ['regensburg', 'ush'], nr: 5, name: 'MOG‘ 68 Shishabar', ort: 'Moosburg an der Isar',
+    id: 'mog68', sets: ['regensburg', 'ush'], nr: 5, name: 'MOG’ 68 Shishabar', ort: 'Moosburg an der Isar',
     rating: 5.0, count: 158, preis: '', doOpen: '17:00', doClose: '01:00',
     fromFreising: { min: 20, km: 18 }, fromRegensburg: { min: 56, km: 84 }, fromUSH: { min: 33, km: 43 },
     adresse: 'Herrnstraße, 85368 Moosburg an der Isar',
@@ -267,7 +269,7 @@ const BARS = [
     ],
     kritisch: [],
     hinweis: 'Echte Shisha-Bar mit Küche. Keine eigene Website.',
-    img: 'img/mog68.jpg', alt: 'Innenraum der MOG‘ 68 Shishabar in Moosburg mit Samtsofas und einer Shisha im Vordergrund',
+    img: 'img/mog68.jpg', alt: 'Innenraum der MOG’ 68 Shishabar in Moosburg mit Samtsofas und einer Shisha im Vordergrund',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=MOG%2068%20Shishabar%20Herrnstra%C3%9Fe%2085368%20Moosburg',
     webUrl: '', webLabel: '',
     lat: 48.4677, lng: 11.9372,
@@ -291,7 +293,7 @@ const BARS = [
     lat: 48.3105, lng: 11.6582,
   },
   {
-    id: 'helleaven', sets: ['ush'], nr: 0, name: 'Helleaven Cocktail & Shishabar', short: 'Helleaven', ort: 'Erding',
+    id: 'helleaven', sets: ['ush'], nr: 0, name: 'Helleaven', ort: 'Erding · Cocktail & Shishabar',
     rating: 4.8, count: 566, preis: '', doOpen: '17:00', doClose: '00:00',
     fromFreising: { min: 24, km: 21 }, fromRegensburg: { min: 72, km: 107 }, fromUSH: { min: 35, km: 35 },
     adresse: 'Landshuter Str. 9, 85435 Erding',
@@ -344,7 +346,6 @@ const onlyU = BARS.filter(b => !b.sets.includes('regensburg'))
 [...inR, ...onlyU].forEach((b, i) => { b.nr = i + 1; });
 const visible = () => BARS.filter(b => b.sets.includes(origin)).sort((a, b) => a.nr - b.nr);
 
-const late = b => isLate(b) ? `<span class="late">erst ab ${hour(b.doOpen)} Uhr</span>` : '';
 const stars = b => `<span class="stars"><span class="s" aria-hidden="true">★</span> ${de(b.rating)}<span class="sr"> von 5 Sternen</span></span>`;
 const doTimes = b => b.doClose ? `${esc(b.doOpen)}-${esc(b.doClose)}` : `ab ${esc(b.doOpen)}`;
 
@@ -412,8 +413,8 @@ function routeHorizontal() {
   const mx = (X0 + X1) / 2;
   return `
   <svg class="b-svg b-svg-h" viewBox="0 0 ${W} ${H}" role="group" aria-label="Strecke Freising nach ${O().name} mit den Bars nach Fahrzeit-Verhältnis">
-    <line class="midline faint" x1="${mx}" y1="14" x2="${mx}" y2="${H - 22}"/>
-    <text class="mid" x="${mx}" y="${H - 6}" text-anchor="middle">Mitte</text>
+    <line class="midline faint" x1="${mx}" y1="${Y - 30}" x2="${mx}" y2="${Y + 30}"/>
+    <text class="mid" x="${mx}" y="${Y + 46}" text-anchor="middle">Mitte</text>
     ${stems}
     <line class="road" x1="${X0}" y1="${Y}" x2="${X1}" y2="${Y}"/>
     <circle class="end" cx="${X0}" cy="${Y}" r="9"/><circle class="end" cx="${X1}" cy="${Y}" r="9"/>
@@ -472,7 +473,7 @@ function renderB(app) {
       ${media(b, b.fav ? '<span class="fav-badge">★ Mein Favorit</span>' : '')}
       <div class="b-body">
         <div class="b-title"><span class="nr">${b.nr}</span><div><h3>${esc(b.name)}</h3><small>${esc(b.ort)}</small></div></div>
-        <div class="b-meta">${stars(b)} <span class="cnt">${b.count} Bewertungen</span><span>Do ${doTimes(b)}</span>${late(b)}</div>
+        <div class="b-meta">${stars(b)} <span class="cnt">${b.count} Bewertungen</span><span class="do${isLate(b) ? ' late' : ''}">Do ${doTimes(b)}</span></div>
         <div>
           <div class="split-lbl"><span>ab Freising <b>${k} Min.</b></span><span>ab ${O().name} <b>${r} Min.</b></span></div>
           <div class="split" aria-hidden="true"><span class="sk" style="flex:${k}"></span><span class="sr2" style="flex:${r}"></span></div>
@@ -495,13 +496,14 @@ function renderB(app) {
         <span class="origin-lbl">Dein Start:</span>
         ${Object.entries(ORIGINS).map(([k, o]) => `<button type="button" class="origin-btn" data-origin="${k}" aria-pressed="${k === origin}">${o.name}</button>`).join('')}
       </div>
-      ${origin === 'ush' ? '<p class="hint">Ab Unterschleißheim zeige ich andere Bars: in der Mitte oder eher Richtung Regensburg, damit dein Heimweg kurz bleibt.</p>' : ''}
+      ${origin === 'ush' ? '<p class="hint">Ab Unterschleißheim kommen zwei Bars dazu, die näher an dir liegen (Nr. 5 und 6, die Nummern bleiben eindeutig). Deinen Heimweg nach Regensburg siehst du auf jeder Karte.</p>' : ''}
       <div class="b-route">
         ${routeHorizontal()}
         ${routeVertical()}
         <p class="b-cap">Je näher an der Mitte, desto fairer ist die Fahrt verteilt. Lage nach Anteil der Fahrzeit, nicht nach Karte.</p>
       </div>
       <div class="b-cards">${cards}</div>
+      <p class="cta">Gefunden? Schick mir einfach die Nummer.</p>
       ${serviceCheck()}
     </main>
     ${footer()}`;
