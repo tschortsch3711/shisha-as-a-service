@@ -52,9 +52,10 @@
   /* ---------- gemeinsam ---------- */
   .hero { background: var(--g-dark); color: #fff; padding: 28px 0 30px; }
   .kicker { margin: 0 0 6px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #CDEBD9; }
+  h1, h2, h3 { text-wrap: balance; }
+  p, blockquote, figcaption, .svc-item span, .split-lbl { text-wrap: pretty; }
   h1 { margin: 0 0 10px; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.08; letter-spacing: -.03em; }
-  .intro { margin: 0; max-width: 36em; font-size: 1.05rem; color: #F0F7F2; }
-  .when { display: inline-block; margin: 12px 0 0; padding: 5px 12px; border-radius: 12px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); color: #F0F7F2; font-size: .95rem; }
+  .intro { margin: 0; font-size: 1.05rem; color: #F0F7F2; }
   .fav-badge { position: absolute; z-index: 2; left: 10px; top: 10px; background: #fff; color: var(--g-dark); border-radius: 999px; padding: 4px 10px; font-size: 12.5px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
   .b-svg .favt { fill: #B07A00; }
   .svc { margin-top: 12px; }
@@ -265,10 +266,10 @@ const BARS = [
 ];
 
 const CHALLENGES = [
-  ['Time to first Kohle', 'Wie lange vom Hinsetzen bis die Shisha steht?'],
-  ['Proaktives Monitoring', 'Kommt der Kohlewechsel, bevor wir fragen müssen?'],
-  ['Change Request', 'Eine Sorte bestellen, die nicht auf der Karte steht.'],
-  ['Kundenbewertung', 'Am Ende vergibt jeder Sterne. Wer liegt näher an Google?'],
+  ['Time to first Kohle', 'Hinsetzen bis die Shisha steht.'],
+  ['Proaktives Monitoring', 'Kohlewechsel, bevor wir fragen?'],
+  ['Change Request', 'Wunschsorte abseits der Karte.'],
+  ['Kundenbewertung', 'Unsere Sterne gegen Google.'],
 ];
 
 
@@ -307,7 +308,6 @@ const hero = () => `
     <p class="kicker">Donnerstag, 19.11.2026</p>
     <h1>Shisha as a Service</h1>
     <p class="intro">${INTRO}</p>
-    <p class="when">Uhrzeit: ab ca. 17 Uhr? Schreib mir, was dir passt.</p>
   </div></header>`;
 const serviceCheck = () => `
   <section class="svc" aria-labelledby="svc-title">
