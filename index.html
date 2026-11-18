@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Shisha as a Service</title>
+<meta name="description" content="Vier Shisha-Bars zur Wahl für Donnerstag, 19.11.2026, irgendwo zwischen Freising und Regensburg.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shisha as a Service">
+<meta property="og:description" content="Vier Kandidaten für Donnerstag. Such dir einen aus und schreib mir die Nummer.">
+<meta property="og:url" content="https://tschortsch3711.github.io/shisha-as-a-service/">
+<meta property="og:image" content="https://tschortsch3711.github.io/shisha-as-a-service/img/towers.jpg">
+<meta property="og:image:width" content="1125">
+<meta property="og:image:height" content="633">
+<meta property="og:image:alt" content="Towers Landshut, Shisha-Lounge am Abend">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  :root {
+    --g: #087A3A;          /* weiße Schrift darauf ca. 5,4:1 */
+    --g-dark: #0B3D2C;
+    --g-soft: #E8F7EE;
+    --ink: #1C1C1C;
+    --muted: #5A635E;
+    --line: #D7E0DA;
+    --paper: #F6F8F5;
+    --card: #FFFFFF;
+    --warn: #8A3B2A;
+    --warn-bg: #F8EEEA;
+    --late: #7A4A00;
+    --late-bg: #FFF1D6;
+    --r: 14px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: Inter, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.45;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+  body { padding-bottom: 24px; }
+  a { color: var(--g); }
+  a:hover { color: var(--g-dark); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  :focus-visible { outline: 3px solid var(--g-dark); outline-offset: 2px; box-shadow: 0 0 0 5px #fff; }
+
+  /* ---------- gemeinsam ---------- */
+  .hero { background: var(--g-dark); color: #fff; padding: 28px 0 30px; }
+  .kicker { margin: 0 0 6px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #CDEBD9; }
+  h1 { margin: 0 0 10px; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.08; letter-spacing: -.03em; }
+  .intro { margin: 0; max-width: 36em; font-size: 1.05rem; color: #F0F7F2; }
+  .when { display: inline-block; margin: 12px 0 0; padding: 5px 12px; border-radius: 12px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); color: #F0F7F2; font-size: .95rem; }
+  .fav-badge { position: absolute; z-index: 2; left: 10px; top: 10px; background: #fff; color: var(--g-dark); border-radius: 999px; padding: 4px 10px; font-size: 12.5px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+  .b-svg .favt { fill: #B07A00; }
+  .svc { margin-top: 12px; }
+  .svc-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
+  @media (min-width: 700px) { .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1100px) { .svc-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .svc-item { display: flex; gap: 10px; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--g); border-radius: 10px; padding: 12px 14px; }
+  .svc-item b { display: block; color: var(--g-dark); margin-bottom: 2px; }
+  .svc-item span:not(.svc-nr) { font-size: 14px; color: var(--ink); }
+  .svc-nr { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--g-soft); color: var(--g-dark); font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; }
+  h2.sec { font-size: 1.25rem; letter-spacing: -.02em; margin: 28px 0 4px; }
+  .hint { margin: 0 0 14px; color: var(--muted); font-size: 14px; }
+  .nr {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--g); color: #fff; font-weight: 700; flex: none;
+  }
+  .stars { font-weight: 700; color: var(--g-dark); white-space: nowrap; }
+  .stars .s { color: #B07A00; }
+  .cnt { color: var(--muted); font-size: .85em; font-weight: 400; }
+  .late {
+    display: inline-block; background: var(--late-bg); color: var(--late);
+    border-radius: 999px; padding: 1px 8px; font-size: 12px; font-weight: 650; white-space: nowrap;
+  }
+  .media { position: relative; overflow: hidden; background: var(--g); }
+  .media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ph {
+    position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--g) 0%, var(--g-dark) 100%); color: #fff; gap: 2px;
+  }
+  .ph span { font-size: clamp(1.8rem, 5vw, 3.4rem); font-weight: 750; letter-spacing: .02em; }
+  .ph small { font-size: 12px; opacity: .9; }
+  .ph .ph-ort { font-size: 1.35rem; font-weight: 700; letter-spacing: -.01em; text-align: center; padding: 0 12px; line-height: 1.15; }
+  .ph { background:
+      radial-gradient(circle at 20% 25%, rgba(255,255,255,.10) 0 18%, transparent 19%),
+      radial-gradient(circle at 80% 80%, rgba(255,255,255,.07) 0 24%, transparent 25%),
+      linear-gradient(135deg, var(--g) 0%, var(--g-dark) 100%); }
+  .q { margin: 0 0 6px; padding: 8px 10px; background: var(--g-soft); border-left: 3px solid var(--g); border-radius: 0 8px 8px 0; font-size: 14px; }
+  .q.crit { background: var(--warn-bg); border-left-color: #B2563F; }
+  .q blockquote { margin: 0 0 3px; }
+  .q figcaption { font-size: 12px; color: var(--muted); }
+  .tiny { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+  .btn { display: inline-block; text-decoration: none; padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 650; }
+  .btn-primary { background: var(--g); color: #fff; }
+  .btn-primary:hover { background: var(--g-dark); color: #fff; }
+  .btn-ghost { border: 1px solid var(--line); color: var(--g-dark); background: #fff; }
+  .foot { color: var(--muted); font-size: 13px; padding-top: 24px; padding-bottom: 8px; }
+  .foot p { margin: 0 0 6px; }
+
+  /* ---------- B · Strecke ---------- */
+  .b-route { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 12px 6px; }
+  .b-svg { width: 100%; height: auto; display: block; }
+  .b-svg-v { display: none; max-width: 380px; margin: 0 auto; }
+  .b-svg text { font-family: Inter, "Segoe UI", Arial, sans-serif; fill: var(--ink); }
+  .b-svg .city { font-weight: 700; font-size: 17px; }
+  .b-svg .who { font-size: 13px; fill: var(--muted); }
+  .b-svg .mid { font-size: 12px; fill: var(--muted); font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+  .b-svg .road { stroke: var(--g-dark); stroke-width: 6; stroke-linecap: round; }
+  .b-svg .midline { stroke: var(--muted); stroke-width: 2; stroke-dasharray: 4 4; }
+  .b-svg .midline.faint { stroke: #B9C6BE; }
+  .b-pt .name, .b-pt .sub { paint-order: stroke; stroke: #fff; stroke-width: 5px; stroke-linejoin: round; }
+  .b-svg .tick { stroke: #fff; stroke-width: 3; }
+  .b-svg .stem { stroke: var(--g); stroke-width: 2; fill: none; }
+  .b-svg .end { fill: var(--g-dark); }
+  .b-pt { cursor: pointer; }
+  .b-pt circle { fill: var(--g); stroke: #fff; stroke-width: 3; }
+  .b-pt .num { fill: #fff; font-weight: 700; font-size: 15px; }
+  .b-pt .name { font-weight: 650; font-size: 15px; }
+  .b-pt .sub { font-size: 12.5px; fill: var(--muted); }
+  .b-pt:hover circle, .b-pt:focus circle { fill: var(--g-dark); }
+  .b-pt:hover .name { text-decoration: underline; }
+  .b-cap { font-size: 13px; color: var(--muted); margin: 6px 4px 6px; }
+  .wrap { max-width: 1440px; }
+  .b-svg-h { max-width: 1060px; margin: 0 auto; }
+  .b-cards { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
+  @media (min-width: 700px) { .b-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 1100px) {
+    .b-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .b-cards .b-card .media { aspect-ratio: 16 / 10; }
+    .b-card .b-body { padding: 10px 12px 12px; gap: 7px; }
+    .b-card .b-title h3 { font-size: 1rem; }
+    .b-card .b-meta { font-size: 13px; gap: 2px 8px; }
+    .b-card .q { font-size: 13px; }
+    .b-card .tiny { font-size: 12px; }
+    .b-card .btn { padding: 7px 11px; font-size: 12.5px; }
+  }
+  /* Desktop: Zeilen über alle 5 Karten ausrichten (Titel, Fakten, Zitate, Links auf einer Höhe) */
+  @supports (grid-template-rows: subgrid) {
+    @media (min-width: 1100px) {
+      .b-cards .b-card { display: grid; grid-row: span 8; grid-template-rows: subgrid; row-gap: 8px; }
+      .b-cards .b-body { display: contents; }
+      .b-cards .b-body > * { margin-left: 12px; margin-right: 12px; }
+      .b-cards .b-body > :first-child { margin-top: 10px; }
+      .b-cards .b-body > .q { align-self: start; }
+      .b-cards .b-body > :last-child { margin-bottom: 12px; align-self: end; }
+      .b-card .q { margin-bottom: 0; }
+      .b-card .tiny { margin-top: 0; }
+    }
+  }
+  .q.none { background: var(--paper); border-left-color: var(--line); color: var(--muted); font-size: 13px; }
+  .b-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden;
+    display: flex; flex-direction: column; scroll-margin-top: 16px; transition: box-shadow .2s;
+  }
+  .b-card.flash { box-shadow: 0 0 0 4px var(--g); }
+  .b-card .media { aspect-ratio: 16 / 7; }
+  .b-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .b-title { display: flex; gap: 10px; align-items: center; }
+  .b-title h3 { margin: 0; font-size: 1.1rem; letter-spacing: -.01em; }
+  .b-title small { display: block; color: var(--muted); font-size: 13px; }
+  .b-meta { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; font-size: 14px; }
+  .split-lbl { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 8px; font-size: 13px; }
+  .split-lbl b { font-weight: 700; }
+  .split { display: flex; height: 8px; border-radius: 999px; overflow: hidden; gap: 2px; }
+  .split .sk { background: var(--g); }
+  .split .sr2 { background: var(--g-dark); opacity: .55; }
+  .b-card .links { margin-top: auto; padding-top: 4px; }
+  @media (max-width: 640px) {
+    .b-svg-h { display: none; }
+    .b-svg-v { display: block; }
+  }
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<noscript><p style="padding:20px">Diese Seite braucht JavaScript. Kurz gesagt: 1 MOG‘ 68 Moosburg, 2 Towers Landshut, 3 Dejavu Lounge Landshut, 4 Illyrian Lounge Abensberg.</p></noscript>
+<script>
+/* =====================================================================
+   DATEN: alle Varianten rendern aus diesem Array.
+   ===================================================================== */
+const BARS = [
+  {
+    id: 'towers', fav: true, nr: 1, name: 'Towers Landshut', ort: 'Landshut',
+    rating: 4.7, count: 234, preis: '$$', doOpen: '16:00', doClose: '01:00',
+    fromFreising: { min: 31, km: 39 }, fromRegensburg: { min: 46, km: 66 },
+    adresse: 'Luitpoldstraße 30A, 84034 Landshut',
+    chips: ['Shisha', 'Essen', 'Cocktails', 'Sitzplätze im Freien'],
+    gut: [
+      { text: 'Das Personal ist super freundlich und aufmerksam, und auch der Chef ist wirklich top.', quelle: 'Tedros W., Google, vor ca. 6 Monaten' },
+      { text: 'Die shishas sind super! Preis Leistung stimmt.', quelle: 'Sedat C., Google, vor ca. 7 Monaten' },
+    ],
+    kritisch: [
+      { text: 'Uns wurde gesagt, jeder Platz sei reserviert, obwohl sichtbar noch zahlreiche Plätze frei waren.', quelle: 'Michaela D., 1 Stern, Google, vor ca. 5 Monaten' },
+    ],
+    hinweis: '',
+    img: 'img/towers.jpg', alt: 'Außenbereich der Towers Lounge Shisha Bar in Landshut am Abend',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Towers%20Landshut%20Luitpoldstra%C3%9Fe%2030A%2084034%20Landshut',
+    webUrl: 'https://www.facebook.com/TowersLandshut/', webLabel: 'Facebook',
+    lat: 48.5401, lng: 12.1421,
+  },
+  {
+    id: 'dejavu', nr: 2, name: 'Dejavu Lounge', ort: 'Landshut, Altstadt',
+    rating: 4.1, count: 184, preis: '$$', doOpen: '17:00', doClose: '02:00',
+    fromFreising: { min: 35, km: 41 }, fromRegensburg: { min: 47, km: 66 },
+    adresse: 'Steckengasse 306, 84028 Landshut',
+    chips: ['Essen', 'Cocktails', 'Sportübertragungen', 'Sitzplätze im Freien', 'Reservierung', 'Debitkarten'],
+    gut: [
+      { text: 'Sympathisches Personal, gute Cocktails und guter Tabak.', quelle: 'Viet Long N., standorte24.de, vor ca. 2 Jahren' },
+      { text: 'Sehr freundlicher Inhaber, Shisha sehr gut und preiswert.', quelle: 'N T, standorte24.de, vor ca. 2 Jahren' },
+    ],
+    kritisch: [
+      { text: 'Sobald du mit 4 Leuten kommst, müssen alle mind. 1 Sache kaufen, sonst muss man gehen.', quelle: 'Florian W., standorte24.de, vor ca. 2 Jahren' },
+      { text: 'Kommt immer drauf an wie der Besitzer gelaunt ist.', quelle: 'Lars D., standorte24.de, vor ca. 2 Jahren' },
+    ],
+    hinweis: 'Zitate sind ältere Lounge-Stimmen. Neuere Google-Texte oft zum Lieferservice.',
+    img: 'img/dejavu.jpg', alt: 'Lounge-Bereich der Dejavu Lounge in Landshut mit grünen Sofas',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Dejavu%20Lounge%20Steckengasse%20306%2084028%20Landshut',
+    webUrl: '', webLabel: '',
+    lat: 48.5356, lng: 12.1531,
+  },
+  {
+    id: 'illyrian', nr: 3, name: 'Illyrian Lounge & Bar', ort: 'Abensberg-Aumühle',
+    rating: 5.0, count: 25, preis: '$$', doOpen: '19:00', doClose: '23:00',
+    fromFreising: { min: 55, km: 68 }, fromRegensburg: { min: 31, km: 39 },
+    adresse: 'Weinbergerstraße 2, 93326 Abensberg-Aumühle',
+    chips: ['Lounge', 'Cocktails', 'Longdrinks', 'Bier', 'Wein', 'Alkoholfrei'],
+    gut: [
+      { text: 'Sehr schöne hochwertige Bar! Nettes Personal und super Pfeife!', quelle: 'Lukas, Google, vor ca. 4 Monaten' },
+      { text: 'Eine sehr chillige Ambiente, in der man definitiv gut abschalten kann.', quelle: 'Ensar R., Google, vor ca. 8 Monaten' },
+      { text: 'Nette Leute sehr entspannt', quelle: 'Christian W., Google, vor einer Woche' },
+    ],
+    kritisch: [],
+    hinweis: 'Keine Bewertung unter 4 Sternen. Schließt am Donnerstag schon um 23 Uhr.',
+    img: 'img/illyrian.jpg', alt: 'Holztheke der Illyrian Lounge & Bar in Abensberg mit Barhockern und Logo an der Pflanzenwand',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Illyrian%20Lounge%20%26%20Bar%20Weinbergerstra%C3%9Fe%202%2093326%20Abensberg-Aum%C3%BChle',
+    webUrl: 'https://www.instagram.com/illyrian_lounge_bar/', webLabel: 'Instagram',
+    lat: 48.8155, lng: 11.8463,
+  },
+  {
+    id: 'mog68', nr: 5, name: 'MOG‘ 68 Shishabar', ort: 'Moosburg an der Isar',
+    rating: 5.0, count: 158, preis: '', doOpen: '17:00', doClose: '01:00',
+    fromFreising: { min: 20, km: 18 }, fromRegensburg: { min: 56, km: 84 },
+    adresse: 'Herrnstraße, 85368 Moosburg an der Isar',
+    chips: ['Shisha', 'Halal-Küche', 'Burger', 'Pizza'],
+    gut: [
+      { text: 'Die Shishas waren top super Geschmack, lange Rauchdauer und perfekt gebaut.', quelle: 'Pascal B., Google, vor ca. 9 Monaten' },
+      { text: 'Bedienung und vor allem der Chef sind absolute Spitzenklasse.', quelle: 'Google-Rezension' },
+    ],
+    kritisch: [],
+    hinweis: 'Echte Shisha-Bar mit Küche, aber näher an mir als an dir. Keine eigene Website.',
+    img: 'img/mog68.jpg', alt: 'Innenraum der MOG‘ 68 Shishabar in Moosburg mit Samtsofas und einer Shisha im Vordergrund',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=MOG%2068%20Shishabar%20Herrnstra%C3%9Fe%2085368%20Moosburg',
+    webUrl: '', webLabel: '',
+    lat: 48.4677, lng: 11.9372,
+  },
+];
+
+const CHALLENGES = [
+  ['Time to first Kohle', 'Wie lange vom Hinsetzen bis die Shisha steht?'],
+  ['Proaktives Monitoring', 'Kommt der Kohlewechsel, bevor wir fragen müssen?'],
+  ['Change Request', 'Eine Sorte bestellen, die nicht auf der Karte steht.'],
+  ['Kundenbewertung', 'Am Ende vergibt jeder Sterne. Wer liegt näher an Google?'],
+];
+
+
+/* =====================================================================
+   Helfer
+   ===================================================================== */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const de = n => n.toFixed(1).replace('.', ',');
+const hour = t => parseInt(t, 10);
+const isLate = b => hour(b.doOpen) >= 19;
+const ratio = b => b.fromFreising.min / (b.fromFreising.min + b.fromRegensburg.min);
+// Nummern laufen entlang der Strecke von Freising nach Regensburg
+BARS.sort((a, b) => ratio(a) - ratio(b)).forEach((b, i) => { b.nr = i + 1; });
+
+const late = b => isLate(b) ? `<span class="late">erst ab ${hour(b.doOpen)} Uhr</span>` : '';
+const stars = b => `<span class="stars"><span class="s" aria-hidden="true">★</span> ${de(b.rating)}<span class="sr"> von 5 Sternen</span></span>`;
+const doTimes = b => `${esc(b.doOpen)}-${esc(b.doClose)}`;
+
+function media(b, extra = '') {
+  const ph = `<div class="ph" aria-hidden="true"><span class="ph-ort">${esc(b.ort)}</span><small>Fotos auf Google Maps</small></div>`;
+  if (!b.img) return `<div class="media" role="img" aria-label="Kein Foto von ${esc(b.name)}, Fotos gibt es auf Google Maps">${extra}${ph}</div>`;
+  return `<div class="media">${extra}${ph}<img src="${esc(b.img)}" alt="${esc(b.alt || 'Foto von ' + b.name)}" loading="lazy" onerror="this.remove()"></div>`;
+}
+function links(b) {
+  const web = b.webUrl ? `<a class="btn btn-ghost" href="${esc(b.webUrl)}">${esc(b.webLabel || 'Webseite')}<span class="sr"> von ${esc(b.name)}</span></a>` : '';
+  return `<div class="links"><a class="btn btn-primary" href="${esc(b.mapsUrl)}">Google Maps<span class="sr"> für ${esc(b.name)}</span></a>${web}</div>`;
+}
+const quote = (q, crit) => `<figure class="q${crit ? ' crit' : ''}"><blockquote>„${esc(q.text)}“</blockquote><figcaption>${esc(q.quelle)}</figcaption></figure>`;
+const hinweis = b => b.hinweis ? `<p class="tiny">${esc(b.hinweis)}</p>` : '';
+
+const INTRO = 'Ein Ort, den noch keiner von uns kennt. Such dir einen aus und schreib mir die Nummer. Um die Reservierung kümmere ich mich.';
+const hero = () => `
+  <header class="hero"><div class="wrap">
+    <p class="kicker">Donnerstag, 19.11.2026</p>
+    <h1>Shisha as a Service</h1>
+    <p class="intro">${INTRO}</p>
+    <p class="when">Uhrzeit: ab ca. 17 Uhr? Schreib mir, was dir passt.</p>
+  </div></header>`;
+const serviceCheck = () => `
+  <section class="svc" aria-labelledby="svc-title">
+    <h2 class="sec" id="svc-title">Kleiner Service-Check für Donnerstag</h2>
+    <p class="hint">Nur nebenbei, mit Augenzwinkern.</p>
+    <ol class="svc-grid">${CHALLENGES.map(([t, d], i) => `
+      <li class="svc-item"><span class="svc-nr" aria-hidden="true">${i + 1}</span><div><b>${esc(t)}</b><span>${esc(d)}</span></div></li>`).join('')}
+    </ol>
+  </section>`;
+const footer = () => `
+  <footer class="wrap foot">
+    <p>Stand 18.11.2026 · Fahrzeiten ca., ohne Verkehr · Bewertungen und Fotos aus Google Maps und Branchenverzeichnissen, Namen gekürzt · Quellen und Code: <a href="https://github.com/tschortsch3711/shisha-as-a-service">GitHub</a></p>
+  </footer>`;
+
+/* =====================================================================
+   B · Strecke
+   ===================================================================== */
+function routeHorizontal() {
+  const W = 1000, H = 310, Y = 150, X0 = 150, X1 = 850, GAP = 18;
+  // Punkte nach Fahrzeit-Verhältnis, Beschriftungen abwechselnd oben/unten, pro Reihe auseinandergeschoben.
+  const items = BARS.map(b => ({ b, t: ratio(b) })).sort((a, c) => a.t - c.t)
+    .map((it, i) => ({ ...it, x: X0 + it.t * (X1 - X0), row: i % 2 ? 1 : -1, w: 46 + Math.max(it.b.name.length * 8.4, 140) }));
+  for (const row of [-1, 1]) {
+    const r = items.filter(it => it.row === row);
+    r.forEach((it, i) => { it.lx = Math.max(it.x, 26, i ? r[i - 1].lx + r[i - 1].w + GAP : 0); });
+    for (let i = r.length - 1; i >= 0; i--) {
+      const limit = i === r.length - 1 ? W - 8 - r[i].w + 18 : r[i + 1].lx - r[i].w - GAP;
+      r[i].lx = Math.max(26, Math.min(r[i].lx, limit));
+    }
+  }
+  let stems = '', ticks = '', pts = '';
+  for (const it of items) {
+    const b = it.b, x = it.x, lx = it.lx, ly = Y + it.row * 85, bend = Y + it.row * 34;
+    stems += `<path class="stem" d="M${x} ${Y} L${x} ${bend} L${lx} ${ly - it.row * 17}"/>`;
+    ticks += `<line class="tick" x1="${x}" y1="${Y - 3}" x2="${x}" y2="${Y + 3}"/>`;
+    pts += `
+      <a href="#b-card-${b.nr}" class="b-pt" data-nr="${b.nr}" aria-label="${b.nr}, ${esc(b.name)}${b.fav ? ', mein Favorit' : ''}: ${b.fromFreising.min} Minuten ab Freising, ${b.fromRegensburg.min} Minuten ab Regensburg. Zur Bar springen.">
+        <circle cx="${lx}" cy="${ly}" r="17"/>
+        <text class="num" x="${lx}" y="${ly + 5}" text-anchor="middle">${b.nr}</text>
+        <text class="name" x="${lx + 26}" y="${ly - 1}">${esc(b.name)}${b.fav ? '<tspan class="favt"> ★</tspan>' : ''}</text>
+        <text class="sub" x="${lx + 26}" y="${ly + 16}">F ${b.fromFreising.min} Min. · R ${b.fromRegensburg.min} Min.</text>
+      </a>`;
+  }
+  const mx = (X0 + X1) / 2;
+  return `
+  <svg class="b-svg b-svg-h" viewBox="0 0 ${W} ${H}" role="group" aria-label="Strecke Freising nach Regensburg mit den Bars nach Fahrzeit-Verhältnis">
+    <line class="midline faint" x1="${mx}" y1="14" x2="${mx}" y2="${H - 22}"/>
+    <text class="mid" x="${mx}" y="${H - 6}" text-anchor="middle">Mitte</text>
+    ${stems}
+    <line class="road" x1="${X0}" y1="${Y}" x2="${X1}" y2="${Y}"/>
+    <circle class="end" cx="${X0}" cy="${Y}" r="9"/><circle class="end" cx="${X1}" cy="${Y}" r="9"/>
+    <text class="city" x="${X0 - 18}" y="${Y + 2}" text-anchor="end">Freising</text>
+    <text class="who" x="${X0 - 18}" y="${Y + 20}" text-anchor="end">ich</text>
+    <text class="city" x="${X1 + 18}" y="${Y + 2}">Regensburg</text>
+    <text class="who" x="${X1 + 18}" y="${Y + 20}">du</text>
+    ${ticks}
+    ${pts}
+  </svg>`;
+}
+
+function routeVertical() {
+  const W = 360, H = 620, X = 70, YT = 70, YB = 550, GAP = 50;
+  // Regensburg oben (Norden), Freising unten
+  const items = BARS.map(b => ({ b, y: YB - ratio(b) * (YB - YT) })).sort((a, c) => a.y - c.y);
+  const ly = items.map(it => it.y);
+  for (let i = 1; i < ly.length; i++) ly[i] = Math.max(ly[i], ly[i - 1] + GAP);
+  for (let i = ly.length - 1; i >= 0; i--) {
+    const cap = i === ly.length - 1 ? YB - 10 : ly[i + 1] - GAP;
+    ly[i] = Math.min(ly[i], cap);
+  }
+  let stems = '', ticks = '', pts = '';
+  items.forEach((it, i) => {
+    const b = it.b, y = ly[i], cx = 132;
+    stems += `<path class="stem" d="M${X} ${it.y} L${X + 26} ${it.y} L${cx - 22} ${y} L${cx} ${y}"/>`;
+    ticks += `<line class="tick" x1="${X - 3}" y1="${it.y}" x2="${X + 3}" y2="${it.y}"/>`;
+    pts += `
+      <a href="#b-card-${b.nr}" class="b-pt" data-nr="${b.nr}" aria-label="${b.nr}, ${esc(b.name)}${b.fav ? ', mein Favorit' : ''}: ${b.fromFreising.min} Minuten ab Freising, ${b.fromRegensburg.min} Minuten ab Regensburg. Zur Bar springen.">
+        <circle cx="${cx}" cy="${y}" r="17"/>
+        <text class="num" x="${cx}" y="${y + 5}" text-anchor="middle">${b.nr}</text>
+        <text class="name" x="${cx + 26}" y="${y - 1}">${esc(b.name)}${b.fav ? '<tspan class="favt"> ★</tspan>' : ''}</text>
+        <text class="sub" x="${cx + 26}" y="${y + 16}">F ${b.fromFreising.min} Min. · R ${b.fromRegensburg.min} Min.</text>
+      </a>`;
+  });
+  const my = (YT + YB) / 2;
+  return `
+  <svg class="b-svg b-svg-v" viewBox="0 0 ${W} ${H}" role="group" aria-label="Strecke Regensburg nach Freising mit den Bars nach Fahrzeit-Verhältnis">
+    ${stems}
+    <line class="midline" x1="6" y1="${my}" x2="${X + 22}" y2="${my}"/>
+    <text class="mid" x="6" y="${my - 8}">Mitte</text>
+    <line class="road" x1="${X}" y1="${YT}" x2="${X}" y2="${YB}"/>
+    <circle class="end" cx="${X}" cy="${YT}" r="9"/><circle class="end" cx="${X}" cy="${YB}" r="9"/>
+    <text class="city" x="${X - 50}" y="${YT - 26}">Regensburg <tspan class="who">(du)</tspan></text>
+    <text class="city" x="${X - 50}" y="${YB + 40}">Freising <tspan class="who">(ich)</tspan></text>
+    ${ticks}
+    ${pts}
+  </svg>`;
+}
+
+function renderB(app) {
+  const cards = BARS.map(b => {
+    const k = b.fromFreising.min, r = b.fromRegensburg.min;
+    return `
+    <article class="b-card" id="b-card-${b.nr}" tabindex="-1">
+      ${media(b, b.fav ? '<span class="fav-badge">★ Mein Favorit</span>' : '')}
+      <div class="b-body">
+        <div class="b-title"><span class="nr">${b.nr}</span><div><h3>${esc(b.name)}</h3><small>${esc(b.ort)}</small></div></div>
+        <div class="b-meta">${stars(b)} <span class="cnt">${b.count} Bewertungen</span><span>Do ${doTimes(b)}</span>${late(b)}</div>
+        <div>
+          <div class="split-lbl"><span>ab Freising <b>${k} Min.</b></span><span>ab Regensburg <b>${r} Min.</b></span></div>
+          <div class="split" aria-hidden="true"><span class="sk" style="flex:${k}"></span><span class="sr2" style="flex:${r}"></span></div>
+        </div>
+        ${b.gut[0] ? quote(b.gut[0], false) : '<div></div>'}
+        ${b.kritisch[0] ? quote(b.kritisch[0], true) : `<p class="q none">Keine kritische Stimme gefunden.</p>`}
+        ${b.hinweis ? hinweis(b) : '<div></div>'}
+        ${links(b)}
+      </div>
+    </article>`;
+  }).join('');
+
+  app.innerHTML = `
+    ${hero()}
+    <main class="wrap">
+      <h2 class="sec">Wo liegt die Mitte?</h2>
+      <p class="hint">Jede Bar sitzt dort auf der Strecke, wo sich die Fahrzeit für uns beide aufteilt. Nummer antippen springt zur Bar.</p>
+      <div class="b-route">
+        ${routeHorizontal()}
+        ${routeVertical()}
+        <p class="b-cap">Je näher an der Mitte, desto fairer ist die Fahrt verteilt. Lage nach Anteil der Fahrzeit, nicht nach Karte.</p>
+      </div>
+      <div class="b-cards">${cards}</div>
+      ${serviceCheck()}
+    </main>
+    ${footer()}`;
+
+  $$('.b-pt', app).forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    const card = $(`#b-card-${a.dataset.nr}`, app);
+    if (!card) return;
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    card.focus({ preventScroll: true });
+    card.classList.add('flash');
+    setTimeout(() => card.classList.remove('flash'), 1600);
+  }));
+}
+
+document.body.dataset.variant = 'B';
+renderB(document.getElementById('app'));
+</script>
+</body>
+</html>
