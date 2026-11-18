@@ -228,7 +228,7 @@
   .nobr { white-space: nowrap; }
   .cta { margin: 0; text-wrap: balance; font-size: var(--fs-2xl); font-weight: var(--fw-semi); line-height: 1.2; letter-spacing: -.01em; }
   .cta-nums { display: flex; gap: 4px; margin: 0; padding: 0; list-style: none; }
-  .cta-nums a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--c-mint); color: var(--c-forest); font-weight: var(--fw-bold); font-size: var(--fs-l); }
+  .cta-nums .cn { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--c-mint); color: var(--c-forest); font-weight: var(--fw-bold); font-size: var(--fs-l); }
 
   /* ---------- Service-Check ---------- */
   .svc-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 4px; }
@@ -274,8 +274,14 @@
 
   /* ===== FINAL: weicher, ruhiger, ohne Datum oben ===== */
   .strip-t, .hero .intro { text-wrap: balance; }
-  .cta-nums a { text-decoration: none; transition: transform .15s ease, background .15s ease; }
-  .cta-nums a:hover { background: #fff; transform: scale(1.08); }
+  .strip-cta .cta-nums { flex-basis: 100%; margin: var(--s-4) 0 0; display: grid; grid-template-columns: 1fr; gap: 8px; }
+  .cta-nums a { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 16px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.22); color: #fff; text-decoration: none; transition: background .15s ease, transform .15s ease; }
+  .cta-nums a:hover { background: rgba(255,255,255,.18); transform: translateY(-2px); }
+  .cta-nums .cname { font-weight: var(--fw-semi); font-size: var(--fs-s); line-height: 1.25; text-wrap: balance; }
+  @media (min-width: 640px) {
+    .strip-cta .cta-nums { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .cta-nums a { flex-direction: column; justify-content: flex-start; text-align: center; gap: 8px; height: 100%; padding: 14px 10px; }
+  }
   .cta-nums a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
   html { scroll-behavior: smooth; scroll-padding-top: 80px; }
   .topbar { border-bottom: 0; background: rgba(255,255,255,.88); backdrop-filter: blur(10px); }
@@ -288,7 +294,7 @@
   .b-route, .strip, .svc-item, .q { border-radius: 16px; }
   .b-card { border-radius: 16px; overflow: hidden; background: #fff; border: 1px solid var(--c-line); transition: box-shadow .25s ease, transform .25s ease; }
   .b-card:hover { box-shadow: 0 16px 36px rgba(7,80,51,.12); transform: translateY(-3px); }
-  .nr, .svc-nr, .cta-nums a, .fav-badge { border-radius: 999px; }
+  .nr, .svc-nr, .cta-nums .cn, .fav-badge { border-radius: 999px; }
   .b-svg .pin { rx: 17px; }
   .b-svg .end { rx: 8px; }
   .strip-cta { background: var(--c-forest); color: #fff; }
@@ -466,7 +472,7 @@ const hinweis = b => b.hinweis ? `<p class="tiny">${esc(b.hinweis)}</p>` : '';
 
 const INTRO = 'Ein Ort, den noch keiner von uns kennt. Such dir einen aus und schick mir deine Wahl per WhatsApp. Um die Reservierung kümmere ich mich.';
 // WhatsApp öffnet direkt den Chat mit vorbereitetem Text
-const waLink = b => 'https://wa.me/491733978189?text=' + encodeURIComponent(`Shisha-as-a-Service: Ich nehme Nr. ${b.nr}, ${b.name} in ${b.ort.split(' · ')[0]} (Start ${O().name}).`);
+const waLink = b => 'https://wa.me/491733978189?text=' + encodeURIComponent(`Shisha-as-a-Service: Ich nehme Nr. ${b.nr}, ${b.name} in ${b.ort.split(' · ')[0]} (Start ${O().name}).\nAm besten passt mir: [Uhrzeit oder Zeitraum]`);
 const hero = () => `
   <div class="topbar"><div class="wrap topbar-in"><a class="brand" href="#top">Shisha-as-a-Service</a></div></div>
   <header class="hero" id="top"><div class="wrap hero-grid">
@@ -632,7 +638,7 @@ function renderB(app) {
         <h2 class="sec" id="cards-title">Vier Bars zur Wahl.</h2>
         <div class="b-cards">${cards}</div>
       </section>
-      <section class="wrap" aria-label="Rückmeldung"><div class="strip strip-cta"><span class="strip-lbl">Rückmeldung</span><span class="strip-t">Gefunden? Tipp auf deine Nummer, WhatsApp öffnet sich mit deiner Wahl.</span><ol class="cta-nums">${visible().map(b => `<li><a href="${esc(waLink(b))}" target="_blank" rel="noopener" aria-label="Nr. ${b.nr}, ${esc(b.name)}: Wahl per WhatsApp schicken">${b.nr}</a></li>`).join('')}</ol></div></section>
+      <section class="wrap" aria-label="Rückmeldung"><div class="strip strip-cta"><span class="strip-lbl">Rückmeldung</span><span class="strip-t">Gefunden? Tipp auf deine Bar. WhatsApp öffnet sich mit deiner Wahl, die Uhrzeit ergänzt du dort.</span><ol class="cta-nums">${visible().map(b => `<li><a href="${esc(waLink(b))}" target="_blank" rel="noopener" aria-label="Nr. ${b.nr}, ${esc(b.name)}: Wahl per WhatsApp schicken"><span class="cn" aria-hidden="true">${b.nr}</span><span class="cname">${esc(b.name)}</span></a></li>`).join('')}</ol></div></section>
       ${serviceCheck()}
     </main>
     ${footer()}`;
