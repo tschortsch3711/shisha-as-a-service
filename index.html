@@ -465,8 +465,8 @@ const quote = (q, crit) => `<figure class="q${crit ? ' crit' : ''}"><blockquote>
 const hinweis = b => b.hinweis ? `<p class="tiny">${esc(b.hinweis)}</p>` : '';
 
 const INTRO = 'Ein Ort, den noch keiner von uns kennt. Such dir einen aus und schick mir deine Wahl per WhatsApp. Um die Reservierung kümmere ich mich.';
-// WhatsApp ohne Telefonnummer: Der Absender wählt den Chat selbst aus
-const waLink = b => 'https://wa.me/?text=' + encodeURIComponent(`Shisha-as-a-Service: Ich nehme Nr. ${b.nr}, ${b.name} in ${b.ort.split(' · ')[0]} (Start ${O().name}).`);
+// WhatsApp öffnet direkt den Chat mit vorbereitetem Text
+const waLink = b => 'https://wa.me/491733978189?text=' + encodeURIComponent(`Shisha-as-a-Service: Ich nehme Nr. ${b.nr}, ${b.name} in ${b.ort.split(' · ')[0]} (Start ${O().name}).`);
 const hero = () => `
   <div class="topbar"><div class="wrap topbar-in"><a class="brand" href="#top">Shisha-as-a-Service</a></div></div>
   <header class="hero" id="top"><div class="wrap hero-grid">
