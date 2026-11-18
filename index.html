@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Shisha as a Service</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B3D2C'/%3E%3Ccircle cx='32' cy='46' r='10' fill='%23087A3A'/%3E%3Crect x='29' y='16' width='6' height='22' rx='2' fill='%23fff'/%3E%3Cpath d='M22 16h20' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M35 30c8 0 10 6 14 6' stroke='%23CDEBD9' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <meta name="description" content="Vier Shisha-Bars zur Wahl für Donnerstag, 19.11.2026, irgendwo zwischen Freising und Regensburg.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shisha as a Service">
 <meta property="og:description" content="Vier Kandidaten für Donnerstag. Such dir einen aus und schreib mir die Nummer.">
 <meta property="og:url" content="https://tschortsch3711.github.io/shisha-as-a-service/">
 <meta property="og:image" content="https://tschortsch3711.github.io/shisha-as-a-service/img/towers.jpg">
-<meta property="og:image:width" content="1125">
-<meta property="og:image:height" content="633">
+<meta property="og:image:width" content="900">
+<meta property="og:image:height" content="506">
 <meta property="og:image:alt" content="Towers Landshut, Shisha-Lounge am Abend">
 <meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary_large_image">
@@ -128,6 +129,9 @@
   .b-pt .sub { font-size: 12.5px; fill: var(--muted); }
   .b-pt:hover circle, .b-pt:focus circle { fill: var(--g-dark); }
   .b-pt:hover .name { text-decoration: underline; }
+  .b-svg-v .b-pt .name { font-size: 17px; }
+  .b-svg-v .b-pt .sub { font-size: 14.5px; }
+  .b-svg-v .city { font-size: 19px; }
   .b-cap { font-size: 13px; color: var(--muted); margin: 6px 4px 6px; }
   .wrap { max-width: 1440px; }
   .b-svg-h { max-width: 1060px; margin: 0 auto; }
@@ -203,7 +207,7 @@ const BARS = [
       { text: 'Uns wurde gesagt, jeder Platz sei reserviert, obwohl sichtbar noch zahlreiche Plätze frei waren.', quelle: 'Michaela D., 1 Stern, Google, vor ca. 5 Monaten' },
     ],
     hinweis: '',
-    img: 'img/towers.jpg', alt: 'Außenbereich der Towers Lounge Shisha Bar in Landshut am Abend',
+    img: 'img/towers.jpg', alt: 'Gut besuchte Terrasse der Towers Lounge Shisha Bar in Landshut am Abend',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Towers%20Landshut%20Luitpoldstra%C3%9Fe%2030A%2084034%20Landshut',
     webUrl: 'https://www.facebook.com/TowersLandshut/', webLabel: 'Facebook',
     lat: 48.5401, lng: 12.1421,
@@ -215,15 +219,13 @@ const BARS = [
     adresse: 'Steckengasse 306, 84028 Landshut',
     chips: ['Essen', 'Cocktails', 'Sportübertragungen', 'Sitzplätze im Freien', 'Reservierung', 'Debitkarten'],
     gut: [
-      { text: 'Sympathisches Personal, gute Cocktails und guter Tabak.', quelle: 'Viet Long N., standorte24.de, vor ca. 2 Jahren' },
-      { text: 'Sehr freundlicher Inhaber, Shisha sehr gut und preiswert.', quelle: 'N T, standorte24.de, vor ca. 2 Jahren' },
+      { text: 'Sehr nettes Personal ist sehr zuvorkommend und super Preis/Leistungs Verhältnis.', quelle: 'Google, Auszug aus einer Rezension' },
     ],
     kritisch: [
-      { text: 'Sobald du mit 4 Leuten kommst, müssen alle mind. 1 Sache kaufen, sonst muss man gehen.', quelle: 'Florian W., standorte24.de, vor ca. 2 Jahren' },
-      { text: 'Kommt immer drauf an wie der Besitzer gelaunt ist.', quelle: 'Lars D., standorte24.de, vor ca. 2 Jahren' },
+      { text: 'Heute hatte der Besitzer und die Bedienung mal wieder einen schlechten Tag.', quelle: 'Google, Auszug aus einer Rezension' },
     ],
-    hinweis: 'Zitate sind ältere Lounge-Stimmen. Neuere Google-Texte oft zum Lieferservice.',
-    img: 'img/dejavu.jpg', alt: 'Lounge-Bereich der Dejavu Lounge in Landshut mit grünen Sofas',
+    hinweis: 'Bei Google geht es oft um den Pizza-Lieferdienst, weniger um die Lounge.',
+    img: 'img/dejavu.jpg', alt: 'Lounge der Dejavu Lounge in Landshut mit grünen Samtsofas und grünem Licht',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Dejavu%20Lounge%20Steckengasse%20306%2084028%20Landshut',
     webUrl: '', webLabel: '',
     lat: 48.5356, lng: 12.1531,
@@ -319,7 +321,7 @@ const serviceCheck = () => `
   </section>`;
 const footer = () => `
   <footer class="wrap foot">
-    <p>Stand 18.11.2026 · Fahrzeiten ca., ohne Verkehr · Bewertungen und Fotos aus Google Maps und Branchenverzeichnissen, Namen gekürzt · Quellen und Code: <a href="https://github.com/tschortsch3711/shisha-as-a-service">GitHub</a></p>
+    <p>Stand 18.11.2026 · Fahrzeiten ca., ohne Verkehr · Bewertungen und Fotos aus Google Maps, Namen gekürzt · Quellen und Code: <a href="https://github.com/tschortsch3711/shisha-as-a-service">GitHub</a></p>
   </footer>`;
 
 /* =====================================================================

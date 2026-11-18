@@ -27,14 +27,12 @@ Danach `http://localhost:8080` aufrufen.
 
 ## Fotos
 
-- `img/towers.jpg`: Google-Unternehmensfoto, über localgermany.net
-- `img/dejavu.jpg`: Google-Unternehmensfoto, über localgermany.net (Ausschnitt des Lounge-Innenraums)
-- `img/illyrian.jpg`, `img/mog68.jpg`: Titelbilder aus den Google-Maps-Profilen, auf 16:9 zugeschnitten
+- Alle Fotos: Titelbilder aus den Google-Maps-Profilen der Bars, auf 16:9 zugeschnitten
 
 ## Quellen (kurz)
 
 - Towers-Zitate: Google, wiedergegeben auf localgermany.net
-- Dejavu-Zitate: ältere Lounge-Stimmen auf standorte24.de
+- Dejavu-Zitate: von Google hervorgehobene Auszüge (ohne Anmeldung zeigt Google nur wenige Rezensionen, die meist den Lieferdienst betreffen)
 - Illyrian- und MOG‘ 68-Zitate: direkt aus Google Maps (Stand 18.11.2026)
 - Alle Namen der Rezensenten gekürzt
 - Links: Towers und Illyrian haben laut Google-Profil nur Facebook bzw. Instagram; die bei Dejavu eingetragene Website ist nicht mehr erreichbar; MOG‘ 68 hat keine Website
