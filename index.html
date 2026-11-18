@@ -94,15 +94,9 @@
   .hero h1 .dot { color: var(--c-green); }
   .intro { margin: 0; max-width: 34em; font-size: var(--fs-l); color: var(--c-ink); }
   .when { display: inline-flex; align-items: center; gap: var(--s-2); margin: var(--s-5) 0 0; padding: 6px 12px; border-radius: var(--r-1); background: var(--c-mint); color: var(--c-forest); font-weight: var(--fw-bold); font-size: var(--fs-s); }
-  .mosaic { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; margin: 0; }
-  .mosaic .tile { position: relative; margin: 0; aspect-ratio: 1; overflow: hidden; background: var(--c-forest); }
-  .mosaic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  @media (min-width: 640px) { .mosaic .tile { aspect-ratio: 4 / 3; } }
   @media (min-width: 1000px) {
     .hero { padding-top: var(--s-8); }
     .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-7); }
-    .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .mosaic .tile { aspect-ratio: 4 / 3; }
   }
 
   /* ---------- Segment-Umschalter ---------- */
@@ -284,8 +278,6 @@
   .hero { background: linear-gradient(180deg, var(--c-mint-soft) 0%, #fff 100%); padding-top: var(--s-7); padding-bottom: var(--s-6); }
   @media (min-width: 1000px) { .hero { padding-top: 88px; padding-bottom: var(--s-4); } }
   @media (max-width: 999.98px) { .hero { padding-bottom: 0; } .hero-grid { gap: 40px; } }
-  .mosaic { gap: 12px; }
-  .mosaic .tile { border-radius: 16px; box-shadow: 0 10px 30px rgba(7,80,51,.14); }
   .btn { border-radius: 999px; padding: 0 20px; }
   .seg { border-radius: 999px; overflow: hidden; }
   .b-route, .strip, .svc-item, .q { border-radius: 16px; }
@@ -298,6 +290,54 @@
   .strip-cta .strip-lbl { color: #CDEBD9; }
   .strip-cta .strip-t { color: #fff; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .b-card { transition: none; } .b-card:hover { transform: none; } }
+
+  /* ===== Einstieg: vier Fotos mit Siegel ===== */
+  .hero-fotos { position: relative; width: 100%; aspect-ratio: 3 / 2; }
+  @media (min-width: 640px) { .hero-fotos { aspect-ratio: 16 / 9; } }
+  @media (min-width: 1000px) { .hero-fotos { aspect-ratio: 4 / 3; } }
+
+  /* Fotobogen: vier Kacheln, in der Mitte ein kleines Siegel */
+  .hero-fotos { container-type: size; overflow: visible; border-radius: 0; background: none; isolation: isolate; font-family: var(--font); }
+
+  .hero-fotos .grid { position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+  .hero-fotos .tile { position: relative; overflow: hidden; border-radius: 16px; background: var(--c-forest); box-shadow: 0 10px 30px rgba(7, 80, 51, .14); }
+  .hero-fotos .tile img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; display: block; transform-origin: 50% 50%; animation: hero-fotos-zoom 44s ease-in-out infinite alternate; }
+  .hero-fotos .tile:nth-child(1) img { animation-delay: -9s; transform-origin: 70% 70%; object-position: 80% 50%; }
+  .hero-fotos .tile:nth-child(2) img { animation-delay: -31s; transform-origin: 30% 70%; }
+  .hero-fotos .tile:nth-child(3) img { animation-delay: -20s; transform-origin: 70% 30%; object-position: 66% 50%; }
+  .hero-fotos .tile:nth-child(4) img { animation-delay: -42s; transform-origin: 30% 30%; }
+
+  /* Siegel */
+  .hero-fotos .seal { position: absolute; left: 50%; top: 50%; width: 34%; width: clamp(158px, 44cqh, 208px); aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; box-shadow: 0 10px 26px rgba(4, 54, 35, .30), 0 2px 5px rgba(4, 54, 35, .22); }
+  .hero-fotos .seal svg { display: block; width: 100%; height: 100%; overflow: visible; }
+  .hero-fotos .rim { fill: #FFFFFF; }
+  .hero-fotos .disc { fill: #075033; }
+  .hero-fotos .hair { fill: none; stroke: #36F39B; stroke-opacity: .6; stroke-width: 1; }
+  .hero-fotos .hair-in { stroke: #E3FBEE; stroke-opacity: .26; }
+  .hero-fotos .turn { transform-box: view-box; transform-origin: 100px 100px; animation: hero-fotos-turn 54s linear infinite; }
+  .hero-fotos .arc { font-size: 14px; font-weight: 600; fill: #FFFFFF; text-anchor: middle; }
+  .hero-fotos .v-small .arc { font-size: 19.5px; }
+  .hero-fotos .dot { fill: #36F39B; }
+  .hero-fotos .mono { font-size: 27px; font-weight: 600; letter-spacing: .4px; fill: #FFFFFF; text-anchor: middle; }
+  .hero-fotos .mono .h { fill: #36F39B; }
+  .hero-fotos .v-small { display: none; }
+
+  /* kleine Flächen (Handy): größere Schrift im Ring, Name nur einmal */
+  @container (max-height: 319px) {
+    .hero-fotos .grid { gap: 10px; }
+    .hero-fotos .tile { border-radius: 14px; }
+    .hero-fotos .seal { width: clamp(116px, 49cqh, 150px); }
+    .hero-fotos .v-big { display: none; }
+    .hero-fotos .v-small { display: inline; }
+    .hero-fotos .mono { font-size: 26px; }
+  }
+
+  @keyframes hero-fotos-turn { to { transform: rotate(360deg); } }
+  @keyframes hero-fotos-zoom { from { transform: scale(1); } to { transform: scale(1.05); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-fotos .tile img, .hero-fotos .turn { animation: none; }
+  }
 </style>
 </head>
 <body>
@@ -475,8 +515,39 @@ const hero = () => `
       <p class="intro">Such dir einen aus und schick mir deine Wahl per WhatsApp. Um die Reservierung kümmere ich mich.</p>
       <p class="hero-actions"><a class="btn btn-primary" href="#cards-title">Zur Auswahl</a><a class="btn btn-ghost" href="#route-title">Wo liegt die Mitte?</a></p>
     </div>
-    <div class="mosaic" aria-hidden="true">${visible().map(b => `
-      <figure class="tile"><img src="${esc(IMG(b.img))}" alt="" onerror="this.remove()"></figure>`).join('')}
+    <div class="hero-fotos" role="img" aria-label="Fotos der vier Bars, in der Mitte ein rundes Siegel: Shisha-as-a-Service">
+      <div class="grid">${visible().map(b => `<div class="tile"><img src="${esc(IMG(b.img))}" alt="" onerror="this.remove()"></div>`).join('')}</div>
+      <div class="seal">
+        <svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+          <defs>
+            <path id="hero-fotos-p" d="M28,100 a72,72 0 1 1 144,0 a72,72 0 1 1 -144,0"/>
+            <path id="hero-fotos-ps" d="M100,167.5 a67.5,67.5 0 1 1 0,-135 a67.5,67.5 0 1 1 0,135"/>
+          </defs>
+          <circle class="rim" cx="100" cy="100" r="100"/>
+          <circle class="disc" cx="100" cy="100" r="93.5"/>
+          <g class="v-big">
+            <circle class="hair" cx="100" cy="100" r="89.5"/>
+            <circle class="hair hair-in" cx="100" cy="100" r="64"/>
+            <g class="turn">
+              <text class="arc"><textPath href="#hero-fotos-p" startOffset="25.32%" textLength="196" lengthAdjust="spacing">SHISHA-AS-A-SERVICE</textPath></text>
+              <text class="arc"><textPath href="#hero-fotos-p" startOffset="75.32%" textLength="196" lengthAdjust="spacing">SHISHA-AS-A-SERVICE</textPath></text>
+              <circle class="dot" cx="23" cy="100" r="2.3"/>
+              <circle class="dot" cx="177" cy="100" r="2.3"/>
+            </g>
+          </g>
+          <g class="v-small">
+            <circle class="hair" cx="100" cy="100" r="89.5"/>
+            <circle class="hair hair-in" cx="100" cy="100" r="59.5"/>
+            <g class="turn">
+              <text class="arc"><textPath href="#hero-fotos-ps" startOffset="50.65%" textLength="300" lengthAdjust="spacing">SHISHA-AS-A-SERVICE</textPath></text>
+              <circle class="dot" cx="74.6" cy="169.8" r="2.6"/>
+              <circle class="dot" cx="100" cy="174.3" r="2.6"/>
+              <circle class="dot" cx="125.4" cy="169.8" r="2.6"/>
+            </g>
+          </g>
+          <text class="mono" x="100" y="109.5">S<tspan class="h">-</tspan>a<tspan class="h">-</tspan>a<tspan class="h">-</tspan>S</text>
+        </svg>
+      </div>
     </div>
   </div></header>`;
 const serviceCheck = () => `
