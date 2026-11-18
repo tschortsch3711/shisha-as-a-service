@@ -27,8 +27,7 @@
     --line: #D7E0DA;
     --paper: #F6F8F5;
     --card: #FFFFFF;
-    --warn: #8A3B2A;
-    --warn-bg: #F8EEEA;
+      --warn-bg: #F8EEEA;
     --late: #7A4A00;
     --late-bg: #FFF1D6;
     --r: 14px;
@@ -47,7 +46,7 @@
   a { color: var(--g); }
   a:hover { color: var(--g-dark); }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
   :focus-visible { outline: 3px solid var(--g-dark); outline-offset: 2px; box-shadow: 0 0 0 5px #fff; }
 
   /* ---------- gemeinsam ---------- */
@@ -142,7 +141,6 @@
   .b-svg-v .b-pt .sub { font-size: 14.5px; }
   .b-svg-v .city { font-size: 19px; }
   .b-cap { font-size: 13px; color: var(--muted); margin: 6px 4px 6px; }
-  .wrap { max-width: 1200px; }
   .b-svg-h { max-width: 1060px; margin: 0 auto; }
   .b-cards { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
   @media (min-width: 700px) { .b-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -156,7 +154,7 @@
     .b-card .tiny { font-size: 12px; }
     .b-card .btn { padding: 7px 11px; font-size: 12.5px; }
   }
-  /* Desktop: Zeilen über alle 5 Karten ausrichten (Titel, Fakten, Zitate, Links auf einer Höhe) */
+  /* Desktop: Zeilen über alle Karten ausrichten (Titel, Fakten, Zitate, Links auf einer Höhe) */
   @supports (grid-template-rows: subgrid) {
     @media (min-width: 1100px) {
       .b-cards .b-card { display: grid; grid-row: span 8; grid-template-rows: subgrid; row-gap: 8px; }
@@ -187,7 +185,7 @@
   .split .sk { background: var(--g); }
   .split .sr2 { background: var(--g-dark); opacity: .55; }
   .b-card .links { margin-top: auto; padding-top: 4px; }
-  @media (max-width: 640px) {
+  @media (max-width: 800px) {
     .b-svg-h { display: none; }
     .b-svg-v { display: block; }
   }
@@ -203,7 +201,7 @@
    ===================================================================== */
 const BARS = [
   {
-    id: 'towers', fav: true, sets: ['regensburg', 'ush'], nr: 1, name: 'Towers Landshut', ort: 'Landshut',
+    id: 'towers', fav: true, sets: ['regensburg', 'ush'], name: 'Towers Landshut', ort: 'Landshut',
     rating: 4.7, count: 234, preis: '$$', doOpen: '16:00', doClose: '01:00',
     fromFreising: { min: 31, km: 39 }, fromRegensburg: { min: 46, km: 66 }, fromUSH: { min: 42, km: 57 },
     adresse: 'Luitpoldstraße 30A, 84034 Landshut',
@@ -222,7 +220,7 @@ const BARS = [
     lat: 48.5401, lng: 12.1421,
   },
   {
-    id: 'dejavu', sets: ['regensburg'], nr: 2, name: 'Dejavu Lounge', ort: 'Landshut, Altstadt',
+    id: 'dejavu', sets: ['regensburg'], name: 'Dejavu Lounge', ort: 'Landshut, Altstadt',
     rating: 4.1, count: 184, preis: '$$', doOpen: '17:00', doClose: '02:00',
     fromFreising: { min: 35, km: 41 }, fromRegensburg: { min: 47, km: 66 }, fromUSH: { min: 45, km: 59 },
     adresse: 'Steckengasse 306, 84028 Landshut',
@@ -240,7 +238,7 @@ const BARS = [
     lat: 48.5356, lng: 12.1531,
   },
   {
-    id: 'illyrian', sets: ['regensburg'], nr: 3, name: 'Illyrian Lounge & Bar', ort: 'Abensberg-Aumühle',
+    id: 'illyrian', sets: ['regensburg'], name: 'Illyrian Lounge & Bar', ort: 'Abensberg-Aumühle',
     rating: 5.0, count: 25, preis: '$$', doOpen: '19:00', doClose: '23:00',
     fromFreising: { min: 55, km: 68 }, fromRegensburg: { min: 31, km: 39 }, fromUSH: { min: 58, km: 76 },
     adresse: 'Weinbergerstraße 2, 93326 Abensberg-Aumühle',
@@ -258,14 +256,14 @@ const BARS = [
     lat: 48.8155, lng: 11.8463,
   },
   {
-    id: 'mog68', sets: ['regensburg', 'ush'], nr: 5, name: 'MOG’ 68 Shishabar', ort: 'Moosburg an der Isar',
+    id: 'mog68', sets: ['regensburg', 'ush'], name: 'MOG’ 68 Shishabar', ort: 'Moosburg an der Isar',
     rating: 5.0, count: 158, preis: '', doOpen: '17:00', doClose: '01:00',
     fromFreising: { min: 20, km: 18 }, fromRegensburg: { min: 56, km: 84 }, fromUSH: { min: 33, km: 43 },
     adresse: 'Herrnstraße, 85368 Moosburg an der Isar',
     chips: ['Shisha', 'Halal-Küche', 'Burger', 'Pizza'],
     gut: [
       { text: 'Die Shishas waren top super Geschmack, lange Rauchdauer und perfekt gebaut.', quelle: 'Pascal B., Google, vor ca. 9 Monaten' },
-      { text: 'Bedienung und vor allem der Chef sind absolute Spitzenklasse.', quelle: 'Google-Rezension' },
+      { text: 'Bedienung und vor allem der Chef sind absolute Spitzenklasse.', quelle: 'Google, Auszug aus einer Rezension' },
     ],
     kritisch: [],
     hinweis: 'Echte Shisha-Bar mit Küche. Keine eigene Website.',
@@ -275,7 +273,7 @@ const BARS = [
     lat: 48.4677, lng: 11.9372,
   },
   {
-    id: 'zer021', sets: ['ush'], nr: 0, name: 'Zer021', ort: 'Neufahrn bei Freising',
+    id: 'zer021', sets: ['ush'], name: 'Zer021', ort: 'Neufahrn bei Freising',
     rating: 4.5, count: 215, preis: '', doOpen: '18:00', doClose: '',
     fromFreising: { min: 18, km: 15 }, fromRegensburg: { min: 68, km: 107 }, fromUSH: { min: 17, km: 12 },
     adresse: 'Am Hart 1a, 85375 Neufahrn bei Freising',
@@ -286,15 +284,15 @@ const BARS = [
     kritisch: [
       { text: 'Standen vor verschlossener Türe, obwohl laut Google geöffnet.', quelle: 'Maria S., Google, vor ca. 1 Monat' },
     ],
-    hinweis: 'Zuletzt standen zwei Gäste trotz Google-Zeiten vor verschlossener Tür. Ich rufe vorher an.',
+    hinweis: 'Zwei Rezensionen vom letzten Monat berichten von verschlossener Tür trotz Google-Zeiten. Ich rufe vorher an.',
     img: 'img/zer021.jpg', alt: 'Eingang der Zer021 Shisha-Bar-Lounge in Neufahrn mit Terrasse',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Zer021%20Am%20Hart%201a%2085375%20Neufahrn%20bei%20Freising',
     webUrl: '', webLabel: '',
     lat: 48.3105, lng: 11.6582,
   },
   {
-    id: 'helleaven', sets: ['ush'], nr: 0, name: 'Helleaven', ort: 'Erding · Cocktail & Shishabar',
-    rating: 4.8, count: 566, preis: '', doOpen: '17:00', doClose: '00:00',
+    id: 'helleaven', sets: ['ush'], name: 'Helleaven', ort: 'Erding · Cocktail & Shishabar',
+    rating: 4.8, count: 566, preis: '', doOpen: '17:00', doClose: '24:00',
     fromFreising: { min: 24, km: 21 }, fromRegensburg: { min: 72, km: 107 }, fromUSH: { min: 35, km: 35 },
     adresse: 'Landshuter Str. 9, 85435 Erding',
     chips: [],
@@ -334,7 +332,7 @@ const ORIGINS = {
   regensburg: { key: 'fromRegensburg', name: 'Regensburg', short: 'R', param: 'regensburg' },
   ush: { key: 'fromUSH', name: 'Unterschleißheim', short: 'U', param: 'unterschleissheim' },
 };
-let origin = new URLSearchParams(location.search).get('ab') === 'unterschleissheim' ? 'ush' : 'regensburg';
+let origin = (new URLSearchParams(location.search).get('ab') || '').toLowerCase() === 'unterschleissheim' ? 'ush' : 'regensburg';
 const O = () => ORIGINS[origin];
 const dur = b => b[O().key];
 const ratio = b => b.fromFreising.min / (b.fromFreising.min + dur(b).min);
@@ -496,7 +494,7 @@ function renderB(app) {
         <span class="origin-lbl">Dein Start:</span>
         ${Object.entries(ORIGINS).map(([k, o]) => `<button type="button" class="origin-btn" data-origin="${k}" aria-pressed="${k === origin}">${o.name}</button>`).join('')}
       </div>
-      ${origin === 'ush' ? '<p class="hint">Ab Unterschleißheim kommen zwei Bars dazu, die näher an dir liegen (Nr. 5 und 6, die Nummern bleiben eindeutig). Deinen Heimweg nach Regensburg siehst du auf jeder Karte.</p>' : ''}
+      ${origin === 'ush' ? '<p class="hint">Ab Unterschleißheim tauschen Nr. 3 und 4 gegen Nr. 5 und 6, die näher an dir liegen. Deinen Heimweg nach Regensburg siehst du auf jeder Karte.</p>' : ''}
       <div class="b-route">
         ${routeHorizontal()}
         ${routeVertical()}
@@ -533,7 +531,6 @@ function renderB(app) {
   }));
 }
 
-document.body.dataset.variant = 'B';
 renderB(document.getElementById('app'));
 </script>
 </body>
