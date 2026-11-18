@@ -1,8 +1,8 @@
 # Shisha-as-a-Service
 
-Kleine statische Seite mit Shisha-Bar-Vorschlägen (je vier, abhängig vom Startort) für ein Treffen am Donnerstag, 19.11.2026, irgendwo zwischen Freising und Regensburg.
+Kleine statische Seite mit Shisha-Bar-Vorschlägen (je vier, abhängig vom Startort) für ein Treffen irgendwo zwischen Freising und Regensburg. Die Seite nennt bewusst keinen Tag und kein Datum, damit sie sich für jeden Termin verwenden lässt.
 
-Die Seite liegt in `index.html`, Fotos in `img/`. Kein externes JavaScript, kein Tracking, kein Formular. Wer die Seite bekommt, schaut sie sich an und antwortet per Nachricht mit der Nummer.
+Die Seite liegt in `index.html`, Fotos in `img/`. Kein externes JavaScript, kein Tracking, kein Formular. Wer die Seite bekommt, sucht sich eine Bar aus und tippt unten auf seine Wahl: WhatsApp öffnet sich mit einer vorbereiteten Nachricht (Bar, Startort, Platzhalter für Tag und Uhrzeit), den Chat wählt man selbst.
 
 Live: https://tschortsch3711.github.io/shisha-as-a-service/
 
@@ -12,7 +12,7 @@ Live: https://tschortsch3711.github.io/shisha-as-a-service/
 - Umschalter „Dein Start“: Regensburg oder Unterschleißheim (Link direkt auf Unterschleißheim: `?ab=unterschleissheim`).
 - Ab Regensburg: Illyrian, Dejavu, Towers, MOG’ 68. Ab Unterschleißheim: Zer021, Towers, Helleaven, MOG’ 68, mit Heimweg nach Regensburg. Gezählt wird je Ansicht 1–4 vom Startort des Gegenübers aus; welche Bars wo erscheinen, steht im Feld `sets`.
 - Darunter die Karten, am Desktop nebeneinander (Zeilen über alle Karten ausgerichtet), auf dem Handy untereinander.
-- Ganz unten ein kleiner Service-Check zum Augenzwinkern.
+- Darunter die Rückmeldung per WhatsApp und ein kleiner Service-Check für den Abend.
 - Alle Daten stehen im Array `BARS` oben im Script von `index.html`.
 - Vorher wurden drei Layout-Prototypen verglichen (Vergleichsliste, Strecke, eine Bar pro Bildschirm). Gewählt wurde die Strecke.
 - Ein Favorit lässt sich per `fav: true` im Array markieren.
@@ -37,10 +37,9 @@ Danach `http://localhost:8080` aufrufen.
 - Dejavu-Zitate: von Google hervorgehobene Auszüge (ohne Anmeldung zeigt Google nur wenige Rezensionen, die meist den Lieferdienst betreffen)
 - Illyrian-, MOG’ 68-, Helleaven- und Zer021-Zitate: direkt aus Google Maps (Stand 18.11.2026)
 - Zer021: Zwei Rezensionen von Oktober 2026 berichten von geschlossener Tür trotz Google-Zeiten; die bei Google eingetragene Website ist ein Verzeichnis und wird nicht verlinkt
-- Helleaven: Öffnungszeiten laut eigener Website (So–Do 17–24 Uhr)
 - Alle Namen der Rezensenten gekürzt
 - Links: Towers und Illyrian haben laut Google-Profil nur Facebook bzw. Instagram; die bei Dejavu eingetragene Website ist nicht mehr erreichbar; MOG’ 68 hat keine Website
-- Öffnungszeiten Do laut Google Maps (Stand 18.11.2026)
+- Öffnungszeiten stehen nicht auf der Seite, sie hängen vom Wochentag ab; jede Karte verlinkt das Google-Maps-Profil der Bar
 - Fahrzeiten: Näherungswerte über OpenStreetMap/OSRM ab den Ortsmitten Freising, Regensburg und Unterschleißheim, ohne Live-Verkehr
 
 Diese Seite ist unabhängig zusammengestellt und keine offizielle Unternehmensseite.
