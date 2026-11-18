@@ -499,7 +499,7 @@ function media(b, extra = '') {
 }
 function links(b) {
   const web = b.webUrl ? `<a class="btn btn-ghost" href="${esc(b.webUrl)}">${esc(b.webLabel || 'Webseite')}${ICON_OUT}<span class="sr"> von ${esc(b.name)}</span></a>` : '';
-  return `<div class="links"><a class="btn btn-primary" href="${esc(b.mapsUrl)}">${ICON_PIN}Maps und Zeiten<span class="sr"> für ${esc(b.name)}</span></a>${web}</div>`;
+  return `<div class="links"><a class="btn btn-primary" href="${esc(b.mapsUrl)}">${ICON_PIN}Maps<span class="sr"> für ${esc(b.name)}</span></a>${web}</div>`;
 }
 const quote = (q, crit) => `<figure class="q${crit ? ' crit' : ''}"><blockquote>„${esc(q.text)}“</blockquote><figcaption>${esc(q.quelle)}</figcaption></figure>`;
 const hinweis = b => b.hinweis ? `<p class="tiny">${esc(b.hinweis)}</p>` : '';
