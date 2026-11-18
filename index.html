@@ -374,7 +374,7 @@ const BARS = [
       { text: 'Bedienung und vor allem der Chef sind absolute Spitzenklasse.', quelle: 'Google, Auszug aus einer Rezension' },
     ],
     kritisch: [],
-    hinweis: 'Echte Shisha-Bar mit Küche. Keine eigene Website.',
+    hinweis: 'Shisha-Bar mit eigener Küche.',
     img: 'img/mog68.jpg', alt: 'Innenraum der MOG’ 68 Shishabar in Moosburg mit Samtsofas und einer Shisha im Vordergrund',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=MOG%2068%20Shishabar%20Herrnstra%C3%9Fe%2085368%20Moosburg',
     webUrl: '', webLabel: '',
@@ -490,7 +490,7 @@ const serviceCheck = () => `
   </section>`;
 const footer = () => `
   <footer class="foot"><div class="wrap">
-    <p>Stand November 2026 · Fahrzeiten ca., ohne Verkehr · Öffnungszeiten bei Google Maps · Bewertungen und Fotos aus Google Maps, Namen gekürzt · Quellen und Code: <a href="https://github.com/tschortsch3711/shisha-as-a-service">GitHub</a></p>
+    <p>Stand November 2026 · Fahrzeiten ohne Verkehr gerechnet · Bewertungen, Fotos und Öffnungszeiten: Google Maps · Code auf <a href="https://github.com/tschortsch3711/shisha-as-a-service">GitHub</a></p>
   </div></footer>`;
 
 /* =====================================================================
@@ -602,7 +602,7 @@ function renderB(app) {
           ${origin === 'ush' ? `<p class="home">Heimweg nach Regensburg: <b>${b.fromRegensburg.min} Min.</b></p>` : ''}
         </div>
         ${b.gut[0] ? quote(b.gut[0], false) : '<div></div>'}
-        ${b.kritisch[0] ? quote(b.kritisch[0], true) : `<p class="q none">Keine kritische Stimme gefunden.</p>`}
+        ${b.kritisch[0] ? quote(b.kritisch[0], true) : `<p class="q none">Bisher keine kritische Stimme.</p>`}
         ${b.hinweis ? hinweis(b) : '<div></div>'}
         ${links(b)}
       </div>
@@ -615,16 +615,16 @@ function renderB(app) {
       <section class="block wrap" aria-labelledby="route-title">
         <p class="eyebrow">Strecke</p>
         <h2 class="sec" id="route-title">Wo liegt die Mitte?</h2>
-        <p class="hint">Jede Bar sitzt dort auf der Strecke, wo sich die Fahrzeit für uns beide aufteilt. Gezählt wird von dir aus, Nummer antippen springt zur Bar.</p>
+        <p class="hint">Je näher eine Bar an der Mitte liegt, desto fairer teilt sich die Fahrt zwischen uns.</p>
         <div class="origin" role="group" aria-label="Wo startest du?">
           <span class="origin-lbl">Dein Start:</span>
           <div class="seg">${Object.entries(ORIGINS).map(([k, o]) => `<button type="button" class="origin-btn" data-origin="${k}" aria-pressed="${k === origin}">${o.name}</button>`).join('')}</div>
         </div>
-        ${origin === 'ush' ? '<p class="hint">Ab Unterschleißheim zeige ich eine eigene Auswahl mit zwei Bars, die näher an dir liegen. Deinen Heimweg nach Regensburg siehst du auf jeder Karte.</p>' : ''}
+        ${origin === 'ush' ? '<p class="hint">Von Unterschleißheim aus sind zwei andere Bars dabei, die näher bei dir liegen.</p>' : ''}
         <div class="b-route">
           ${routeHorizontal()}
           ${routeVertical()}
-          <p class="b-cap">Je näher an der Mitte, desto fairer ist die Fahrt verteilt. Lage nach Anteil der Fahrzeit, nicht nach Karte.</p>
+          <p class="b-cap">Angeordnet nach Fahrzeit, nicht nach Landkarte.</p>
         </div>
       </section>
       <section class="block wrap" aria-labelledby="cards-title">
@@ -632,7 +632,7 @@ function renderB(app) {
         <h2 class="sec" id="cards-title">Vier Bars zur Wahl.</h2>
         <div class="b-cards">${cards}</div>
       </section>
-      <section class="wrap" aria-label="Rückmeldung"><div class="strip strip-cta"><span class="strip-lbl">Deine Rückmeldung · Start in ${O().name}</span><span class="strip-t">Gefunden? Tipp auf deine Bar. WhatsApp öffnet sich mit deiner Wahl, Tag und Uhrzeit ergänzt du dort.</span><ol class="cta-nums">${visible().map(b => `<li><a href="${esc(waLink(b))}" target="_blank" rel="noopener" aria-label="Nr. ${b.nr}, ${esc(b.name)}: Wahl per WhatsApp schicken"><span class="cn" aria-hidden="true">${b.nr}</span><span class="cname">${esc(b.name)}</span></a></li>`).join('')}</ol></div></section>
+      <section class="wrap" aria-label="Rückmeldung"><div class="strip strip-cta"><span class="strip-lbl">Deine Rückmeldung · Start in ${O().name}</span><span class="strip-t">Welche darf es sein? Schick mir deine Wahl per WhatsApp.</span><ol class="cta-nums">${visible().map(b => `<li><a href="${esc(waLink(b))}" target="_blank" rel="noopener" aria-label="Nr. ${b.nr}, ${esc(b.name)}: Wahl per WhatsApp schicken"><span class="cn" aria-hidden="true">${b.nr}</span><span class="cname">${esc(b.name)}</span></a></li>`).join('')}</ol></div></section>
       ${serviceCheck()}
     </main>
     ${footer()}`;
