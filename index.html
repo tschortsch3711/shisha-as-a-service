@@ -97,14 +97,12 @@
   .mosaic { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; margin: 0; }
   .mosaic .tile { position: relative; margin: 0; aspect-ratio: 1; overflow: hidden; background: var(--c-forest); }
   .mosaic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-  .tile-nr { position: absolute; left: 0; bottom: 0; min-width: 30px; height: 30px; padding: 0 6px; display: inline-flex; align-items: center; justify-content: center; background: var(--c-green); color: #fff; font-weight: var(--fw-bold); font-size: var(--fs-s); }
   @media (min-width: 640px) { .mosaic .tile { aspect-ratio: 4 / 3; } }
   @media (min-width: 1000px) {
     .hero { padding-top: var(--s-8); }
     .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-7); }
     .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .mosaic .tile { aspect-ratio: 4 / 3; }
-    .tile-nr { min-width: 36px; height: 36px; font-size: var(--fs-m); }
   }
 
   /* ---------- Segment-Umschalter ---------- */
@@ -289,7 +287,6 @@
   @media (min-width: 1000px) { .hero { padding-top: 88px; padding-bottom: var(--s-4); } }
   .mosaic { gap: 12px; }
   .mosaic .tile { border-radius: 16px; box-shadow: 0 10px 30px rgba(7,80,51,.14); }
-  .tile-nr { left: 10px; bottom: 10px; border-radius: 999px; }
   .btn { border-radius: 999px; padding: 0 20px; }
   .seg { border-radius: 999px; overflow: hidden; }
   .b-route, .strip, .svc-item, .q { border-radius: 16px; }
@@ -483,7 +480,7 @@ const hero = () => `
       <p class="hero-actions"><a class="btn btn-primary" href="#cards-title">Zur Auswahl</a><a class="btn btn-ghost" href="#route-title">Wo liegt die Mitte?</a></p>
     </div>
     <div class="mosaic" aria-hidden="true">${visible().map(b => `
-      <figure class="tile"><img src="${esc(IMG(b.img))}" alt="" onerror="this.remove()"><span class="tile-nr">${b.nr}</span></figure>`).join('')}
+      <figure class="tile"><img src="${esc(IMG(b.img))}" alt="" onerror="this.remove()"></figure>`).join('')}
     </div>
   </div></header>`;
 const serviceCheck = () => `
