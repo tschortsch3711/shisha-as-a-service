@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Shisha as a Service</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B3D2C'/%3E%3Ccircle cx='32' cy='46' r='10' fill='%23087A3A'/%3E%3Crect x='29' y='16' width='6' height='22' rx='2' fill='%23fff'/%3E%3Cpath d='M22 16h20' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M35 30c8 0 10 6 14 6' stroke='%23CDEBD9' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
-<meta name="description" content="Vier Shisha-Bars zur Wahl für Donnerstag, 19.11.2026, irgendwo zwischen Freising und Regensburg.">
+<meta name="description" content="Vier Shisha-Bars zur Wahl für Donnerstag, 19.11.2026, irgendwo zwischen Freising und Regensburg oder Unterschleißheim.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shisha as a Service">
 <meta property="og:description" content="Vier Kandidaten für Donnerstag. Such dir einen aus und schreib mir die Nummer.">
@@ -59,6 +59,11 @@
   .intro { margin: 0; font-size: 1.05rem; color: #F0F7F2; }
   .fav-badge { position: absolute; z-index: 2; left: 10px; top: 10px; background: #fff; color: var(--g-dark); border-radius: 999px; padding: 4px 10px; font-size: 12.5px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
   .b-svg .favt { fill: #B07A00; }
+  .origin { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin: 0 0 12px; }
+  .origin-lbl { font-size: 14px; color: var(--muted); margin-right: 2px; }
+  .origin-btn { font: inherit; font-size: 14px; font-weight: 650; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--g-dark); cursor: pointer; }
+  .origin-btn[aria-pressed="true"] { background: var(--g); border-color: var(--g); color: #fff; }
+  @media (max-width: 420px) { .origin-btn { padding: 6px 11px; font-size: 13.5px; } .origin { gap: 6px; } }
   .svc { margin-top: 12px; }
   .svc-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px; }
   @media (min-width: 700px) { .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -196,7 +201,7 @@ const BARS = [
   {
     id: 'towers', fav: true, nr: 1, name: 'Towers Landshut', ort: 'Landshut',
     rating: 4.7, count: 234, preis: '$$', doOpen: '16:00', doClose: '01:00',
-    fromFreising: { min: 31, km: 39 }, fromRegensburg: { min: 46, km: 66 },
+    fromFreising: { min: 31, km: 39 }, fromRegensburg: { min: 46, km: 66 }, fromUSH: { min: 42, km: 57 },
     adresse: 'Luitpoldstraße 30A, 84034 Landshut',
     chips: ['Shisha', 'Essen', 'Cocktails', 'Sitzplätze im Freien'],
     gut: [
@@ -215,7 +220,7 @@ const BARS = [
   {
     id: 'dejavu', nr: 2, name: 'Dejavu Lounge', ort: 'Landshut, Altstadt',
     rating: 4.1, count: 184, preis: '$$', doOpen: '17:00', doClose: '02:00',
-    fromFreising: { min: 35, km: 41 }, fromRegensburg: { min: 47, km: 66 },
+    fromFreising: { min: 35, km: 41 }, fromRegensburg: { min: 47, km: 66 }, fromUSH: { min: 45, km: 59 },
     adresse: 'Steckengasse 306, 84028 Landshut',
     chips: ['Essen', 'Cocktails', 'Sportübertragungen', 'Sitzplätze im Freien', 'Reservierung', 'Debitkarten'],
     gut: [
@@ -233,7 +238,7 @@ const BARS = [
   {
     id: 'illyrian', nr: 3, name: 'Illyrian Lounge & Bar', ort: 'Abensberg-Aumühle',
     rating: 5.0, count: 25, preis: '$$', doOpen: '19:00', doClose: '23:00',
-    fromFreising: { min: 55, km: 68 }, fromRegensburg: { min: 31, km: 39 },
+    fromFreising: { min: 55, km: 68 }, fromRegensburg: { min: 31, km: 39 }, fromUSH: { min: 58, km: 76 },
     adresse: 'Weinbergerstraße 2, 93326 Abensberg-Aumühle',
     chips: ['Lounge', 'Cocktails', 'Longdrinks', 'Bier', 'Wein', 'Alkoholfrei'],
     gut: [
@@ -251,7 +256,7 @@ const BARS = [
   {
     id: 'mog68', nr: 5, name: 'MOG‘ 68 Shishabar', ort: 'Moosburg an der Isar',
     rating: 5.0, count: 158, preis: '', doOpen: '17:00', doClose: '01:00',
-    fromFreising: { min: 20, km: 18 }, fromRegensburg: { min: 56, km: 84 },
+    fromFreising: { min: 20, km: 18 }, fromRegensburg: { min: 56, km: 84 }, fromUSH: { min: 33, km: 43 },
     adresse: 'Herrnstraße, 85368 Moosburg an der Isar',
     chips: ['Shisha', 'Halal-Küche', 'Burger', 'Pizza'],
     gut: [
@@ -259,7 +264,7 @@ const BARS = [
       { text: 'Bedienung und vor allem der Chef sind absolute Spitzenklasse.', quelle: 'Google-Rezension' },
     ],
     kritisch: [],
-    hinweis: 'Echte Shisha-Bar mit Küche, aber näher an mir als an dir. Keine eigene Website.',
+    hinweis: 'Echte Shisha-Bar mit Küche. Keine eigene Website.',
     img: 'img/mog68.jpg', alt: 'Innenraum der MOG‘ 68 Shishabar in Moosburg mit Samtsofas und einer Shisha im Vordergrund',
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=MOG%2068%20Shishabar%20Herrnstra%C3%9Fe%2085368%20Moosburg',
     webUrl: '', webLabel: '',
@@ -284,9 +289,18 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': 
 const de = n => n.toFixed(1).replace('.', ',');
 const hour = t => parseInt(t, 10);
 const isLate = b => hour(b.doOpen) >= 19;
-const ratio = b => b.fromFreising.min / (b.fromFreising.min + b.fromRegensburg.min);
-// Nummern laufen entlang der Strecke von Freising nach Regensburg
-BARS.sort((a, b) => ratio(a) - ratio(b)).forEach((b, i) => { b.nr = i + 1; });
+// Wo startest du? Regensburg oder Unterschleißheim. Die Wahl steht in der URL (?ab=unterschleissheim).
+const ORIGINS = {
+  regensburg: { key: 'fromRegensburg', name: 'Regensburg', short: 'R', param: 'regensburg' },
+  ush: { key: 'fromUSH', name: 'Unterschleißheim', short: 'U', param: 'unterschleissheim' },
+};
+let origin = new URLSearchParams(location.search).get('ab') === 'unterschleissheim' ? 'ush' : 'regensburg';
+const O = () => ORIGINS[origin];
+const dur = b => b[O().key];
+const ratio = b => b.fromFreising.min / (b.fromFreising.min + dur(b).min);
+// Nummern laufen entlang der Strecke Freising - Regensburg und bleiben beim Umschalten gleich
+const ratioR = b => b.fromFreising.min / (b.fromFreising.min + b.fromRegensburg.min);
+BARS.sort((a, b) => ratioR(a) - ratioR(b)).forEach((b, i) => { b.nr = i + 1; });
 
 const late = b => isLate(b) ? `<span class="late">erst ab ${hour(b.doOpen)} Uhr</span>` : '';
 const stars = b => `<span class="stars"><span class="s" aria-hidden="true">★</span> ${de(b.rating)}<span class="sr"> von 5 Sternen</span></span>`;
@@ -328,7 +342,7 @@ const footer = () => `
    B · Strecke
    ===================================================================== */
 function routeHorizontal() {
-  const W = 1000, H = 310, Y = 150, X0 = 150, X1 = 850, GAP = 18;
+  const W = 1000, H = 310, Y = 150, X0 = 160, X1 = 820, GAP = 18;
   // Punkte nach Fahrzeit-Verhältnis, Beschriftungen abwechselnd oben/unten, pro Reihe auseinandergeschoben.
   const items = BARS.map(b => ({ b, t: ratio(b) })).sort((a, c) => a.t - c.t)
     .map((it, i) => ({ ...it, x: X0 + it.t * (X1 - X0), row: i % 2 ? 1 : -1, w: 46 + Math.max(it.b.name.length * 8.4, 140) }));
@@ -346,16 +360,16 @@ function routeHorizontal() {
     stems += `<path class="stem" d="M${x} ${Y} L${x} ${bend} L${lx} ${ly - it.row * 17}"/>`;
     ticks += `<line class="tick" x1="${x}" y1="${Y - 3}" x2="${x}" y2="${Y + 3}"/>`;
     pts += `
-      <a href="#b-card-${b.nr}" class="b-pt" data-nr="${b.nr}" aria-label="${b.nr}, ${esc(b.name)}${b.fav ? ', mein Favorit' : ''}: ${b.fromFreising.min} Minuten ab Freising, ${b.fromRegensburg.min} Minuten ab Regensburg. Zur Bar springen.">
+      <a href="#b-card-${b.nr}" class="b-pt" data-nr="${b.nr}" aria-label="${b.nr}, ${esc(b.name)}${b.fav ? ', mein Favorit' : ''}: ${b.fromFreising.min} Minuten ab Freising, ${dur(b).min} Minuten ab ${O().name}. Zur Bar springen.">
         <circle cx="${lx}" cy="${ly}" r="17"/>
         <text class="num" x="${lx}" y="${ly + 5}" text-anchor="middle">${b.nr}</text>
         <text class="name" x="${lx + 26}" y="${ly - 1}">${esc(b.name)}${b.fav ? '<tspan class="favt"> ★</tspan>' : ''}</text>
-        <text class="sub" x="${lx + 26}" y="${ly + 16}">F ${b.fromFreising.min} Min. · R ${b.fromRegensburg.min} Min.</text>
+        <text class="sub" x="${lx + 26}" y="${ly + 16}">F ${b.fromFreising.min} Min. · ${O().short} ${dur(b).min} Min.</text>
       </a>`;
   }
   const mx = (X0 + X1) / 2;
   return `
-  <svg class="b-svg b-svg-h" viewBox="0 0 ${W} ${H}" role="group" aria-label="Strecke Freising nach Regensburg mit den Bars nach Fahrzeit-Verhältnis">
+  <svg class="b-svg b-svg-h" viewBox="0 0 ${W} ${H}" role="group" aria-label="Strecke Freising nach ${O().name} mit den Bars nach Fahrzeit-Verhältnis">
     <line class="midline faint" x1="${mx}" y1="14" x2="${mx}" y2="${H - 22}"/>
     <text class="mid" x="${mx}" y="${H - 6}" text-anchor="middle">Mitte</text>
     ${stems}
@@ -363,7 +377,7 @@ function routeHorizontal() {
     <circle class="end" cx="${X0}" cy="${Y}" r="9"/><circle class="end" cx="${X1}" cy="${Y}" r="9"/>
     <text class="city" x="${X0 - 18}" y="${Y + 2}" text-anchor="end">Freising</text>
     <text class="who" x="${X0 - 18}" y="${Y + 20}" text-anchor="end">ich</text>
-    <text class="city" x="${X1 + 18}" y="${Y + 2}">Regensburg</text>
+    <text class="city" x="${X1 + 18}" y="${Y + 2}">${O().name}</text>
     <text class="who" x="${X1 + 18}" y="${Y + 20}">du</text>
     ${ticks}
     ${pts}
@@ -372,7 +386,7 @@ function routeHorizontal() {
 
 function routeVertical() {
   const W = 360, H = 620, X = 70, YT = 70, YB = 550, GAP = 50;
-  // Regensburg oben (Norden), Freising unten
+  // Startort des Gegenübers oben, Freising unten
   const items = BARS.map(b => ({ b, y: YB - ratio(b) * (YB - YT) })).sort((a, c) => a.y - c.y);
   const ly = items.map(it => it.y);
   for (let i = 1; i < ly.length; i++) ly[i] = Math.max(ly[i], ly[i - 1] + GAP);
@@ -386,22 +400,22 @@ function routeVertical() {
     stems += `<path class="stem" d="M${X} ${it.y} L${X + 26} ${it.y} L${cx - 22} ${y} L${cx} ${y}"/>`;
     ticks += `<line class="tick" x1="${X - 3}" y1="${it.y}" x2="${X + 3}" y2="${it.y}"/>`;
     pts += `
-      <a href="#b-card-${b.nr}" class="b-pt" data-nr="${b.nr}" aria-label="${b.nr}, ${esc(b.name)}${b.fav ? ', mein Favorit' : ''}: ${b.fromFreising.min} Minuten ab Freising, ${b.fromRegensburg.min} Minuten ab Regensburg. Zur Bar springen.">
+      <a href="#b-card-${b.nr}" class="b-pt" data-nr="${b.nr}" aria-label="${b.nr}, ${esc(b.name)}${b.fav ? ', mein Favorit' : ''}: ${b.fromFreising.min} Minuten ab Freising, ${dur(b).min} Minuten ab ${O().name}. Zur Bar springen.">
         <circle cx="${cx}" cy="${y}" r="17"/>
         <text class="num" x="${cx}" y="${y + 5}" text-anchor="middle">${b.nr}</text>
         <text class="name" x="${cx + 26}" y="${y - 1}">${esc(b.name)}${b.fav ? '<tspan class="favt"> ★</tspan>' : ''}</text>
-        <text class="sub" x="${cx + 26}" y="${y + 16}">F ${b.fromFreising.min} Min. · R ${b.fromRegensburg.min} Min.</text>
+        <text class="sub" x="${cx + 26}" y="${y + 16}">F ${b.fromFreising.min} Min. · ${O().short} ${dur(b).min} Min.</text>
       </a>`;
   });
   const my = (YT + YB) / 2;
   return `
-  <svg class="b-svg b-svg-v" viewBox="0 0 ${W} ${H}" role="group" aria-label="Strecke Regensburg nach Freising mit den Bars nach Fahrzeit-Verhältnis">
+  <svg class="b-svg b-svg-v" viewBox="0 0 ${W} ${H}" role="group" aria-label="Strecke ${O().name} nach Freising mit den Bars nach Fahrzeit-Verhältnis">
     ${stems}
     <line class="midline" x1="6" y1="${my}" x2="${X + 22}" y2="${my}"/>
     <text class="mid" x="6" y="${my - 8}">Mitte</text>
     <line class="road" x1="${X}" y1="${YT}" x2="${X}" y2="${YB}"/>
     <circle class="end" cx="${X}" cy="${YT}" r="9"/><circle class="end" cx="${X}" cy="${YB}" r="9"/>
-    <text class="city" x="${X - 50}" y="${YT - 26}">Regensburg <tspan class="who">(du)</tspan></text>
+    <text class="city" x="${X - 50}" y="${YT - 26}">${O().name} <tspan class="who">(du)</tspan></text>
     <text class="city" x="${X - 50}" y="${YB + 40}">Freising <tspan class="who">(ich)</tspan></text>
     ${ticks}
     ${pts}
@@ -410,7 +424,7 @@ function routeVertical() {
 
 function renderB(app) {
   const cards = BARS.map(b => {
-    const k = b.fromFreising.min, r = b.fromRegensburg.min;
+    const k = b.fromFreising.min, r = dur(b).min;
     return `
     <article class="b-card" id="b-card-${b.nr}" tabindex="-1">
       ${media(b, b.fav ? '<span class="fav-badge">★ Mein Favorit</span>' : '')}
@@ -418,7 +432,7 @@ function renderB(app) {
         <div class="b-title"><span class="nr">${b.nr}</span><div><h3>${esc(b.name)}</h3><small>${esc(b.ort)}</small></div></div>
         <div class="b-meta">${stars(b)} <span class="cnt">${b.count} Bewertungen</span><span>Do ${doTimes(b)}</span>${late(b)}</div>
         <div>
-          <div class="split-lbl"><span>ab Freising <b>${k} Min.</b></span><span>ab Regensburg <b>${r} Min.</b></span></div>
+          <div class="split-lbl"><span>ab Freising <b>${k} Min.</b></span><span>ab ${O().name} <b>${r} Min.</b></span></div>
           <div class="split" aria-hidden="true"><span class="sk" style="flex:${k}"></span><span class="sr2" style="flex:${r}"></span></div>
         </div>
         ${b.gut[0] ? quote(b.gut[0], false) : '<div></div>'}
@@ -434,6 +448,10 @@ function renderB(app) {
     <main class="wrap">
       <h2 class="sec">Wo liegt die Mitte?</h2>
       <p class="hint">Jede Bar sitzt dort auf der Strecke, wo sich die Fahrzeit für uns beide aufteilt. Nummer antippen springt zur Bar.</p>
+      <div class="origin" role="group" aria-label="Wo startest du?">
+        <span class="origin-lbl">Dein Start:</span>
+        ${Object.entries(ORIGINS).map(([k, o]) => `<button type="button" class="origin-btn" data-origin="${k}" aria-pressed="${k === origin}">${o.name}</button>`).join('')}
+      </div>
       <div class="b-route">
         ${routeHorizontal()}
         ${routeVertical()}
@@ -444,6 +462,20 @@ function renderB(app) {
     </main>
     ${footer()}`;
 
+  $$('.origin-btn', app).forEach(btn => btn.addEventListener('click', () => {
+    if (btn.dataset.origin === origin) return;
+    origin = btn.dataset.origin;
+    const y = window.scrollY;
+    renderB(app);
+    window.scrollTo(0, y);
+    const again = $(`.origin-btn[data-origin="${origin}"]`, app);
+    if (again) again.focus({ preventScroll: true });
+    try {
+      const url = new URL(location.href);
+      if (origin === 'regensburg') url.searchParams.delete('ab'); else url.searchParams.set('ab', O().param);
+      history.replaceState(null, '', url);
+    } catch (e) { /* z. B. in Vorschauen ohne echte URL */ }
+  }));
   $$('.b-pt', app).forEach(a => a.addEventListener('click', e => {
     e.preventDefault();
     const card = $(`#b-card-${a.dataset.nr}`, app);

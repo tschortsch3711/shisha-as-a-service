@@ -9,6 +9,7 @@ Live: https://tschortsch3711.github.io/shisha-as-a-service/
 ## Aufbau
 
 - Oben eine Strecke Freising ↔ Regensburg: Jede Bar sitzt dort, wo sich die Fahrzeit für beide aufteilt. Die Nummern laufen entlang dieser Strecke.
+- Umschalter „Dein Start“: Regensburg oder Unterschleißheim (Link direkt auf Unterschleißheim: `?ab=unterschleissheim`). Die Nummern bleiben dabei gleich.
 - Darunter die Karten, am Desktop nebeneinander (Zeilen über alle Karten ausgerichtet), auf dem Handy untereinander.
 - Ganz unten ein kleiner Service-Check zum Augenzwinkern.
 - Alle Daten stehen im Array `BARS` oben im Script von `index.html`.
@@ -37,6 +38,6 @@ Danach `http://localhost:8080` aufrufen.
 - Alle Namen der Rezensenten gekürzt
 - Links: Towers und Illyrian haben laut Google-Profil nur Facebook bzw. Instagram; die bei Dejavu eingetragene Website ist nicht mehr erreichbar; MOG‘ 68 hat keine Website
 - Öffnungszeiten Do laut Google Maps (Stand 18.11.2026)
-- Fahrzeiten: Näherungswerte über OpenStreetMap/OSRM ab Ortsmitte Freising, ohne Live-Verkehr
+- Fahrzeiten: Näherungswerte über OpenStreetMap/OSRM ab den Ortsmitten Freising, Regensburg und Unterschleißheim, ohne Live-Verkehr
 
 Diese Seite ist unabhängig zusammengestellt und keine offizielle Unternehmensseite.
