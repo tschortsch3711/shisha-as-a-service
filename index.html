@@ -51,7 +51,7 @@
 
   /* ---------- gemeinsam ---------- */
   .hero { background: var(--g-dark); color: #fff; padding: 28px 0 30px; }
-  .kicker { margin: 0 0 6px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: #CDEBD9; }
+  .when { display: inline-flex; align-items: center; gap: 8px; margin: 14px 0 0; padding: 6px 14px; border-radius: 999px; background: #fff; color: var(--g-dark); font-weight: 700; font-size: .95rem; }
   h1, h2, h3 { text-wrap: balance; }
   p, blockquote, figcaption, .svc-item span, .split-lbl { text-wrap: pretty; }
   h1 { margin: 0 0 10px; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.08; letter-spacing: -.03em; }
@@ -194,7 +194,7 @@
 </head>
 <body>
 <div id="app"></div>
-<noscript><p style="padding:20px">Diese Seite braucht JavaScript. Kurz gesagt, ab Regensburg: 1 MOG’ 68 Moosburg, 2 Towers Landshut, 3 Dejavu Lounge Landshut, 4 Illyrian Lounge Abensberg. Ab Unterschleißheim: 1 MOG’ 68 Moosburg, 2 Towers Landshut, 5 Helleaven Erding, 6 Zer021 Neufahrn.</p></noscript>
+<noscript><p style="padding:20px">Diese Seite braucht JavaScript. Kurz gesagt, ab Regensburg: 1 Illyrian Lounge Abensberg, 2 Dejavu Lounge Landshut, 3 Towers Landshut, 4 MOG’ 68 Moosburg. Ab Unterschleißheim: 1 Zer021 Neufahrn, 2 Towers Landshut, 3 Helleaven Erding, 4 MOG’ 68 Moosburg.</p></noscript>
 <script>
 /* =====================================================================
    DATEN: alle Varianten rendern aus diesem Array.
@@ -336,13 +336,12 @@ let origin = (new URLSearchParams(location.search).get('ab') || '').toLowerCase(
 const O = () => ORIGINS[origin];
 const dur = b => b[O().key];
 const ratio = b => b.fromFreising.min / (b.fromFreising.min + dur(b).min);
-// Nummern laufen entlang der Strecke Freising - Regensburg und bleiben beim Umschalten gleich
-const ratioR = b => b.fromFreising.min / (b.fromFreising.min + b.fromRegensburg.min);
-const inR = BARS.filter(b => b.sets.includes('regensburg')).sort((a, b) => ratioR(a) - ratioR(b));
-const onlyU = BARS.filter(b => !b.sets.includes('regensburg'))
-  .sort((a, b) => a.fromFreising.min / (a.fromFreising.min + a.fromUSH.min) - b.fromFreising.min / (b.fromFreising.min + b.fromUSH.min));
-[...inR, ...onlyU].forEach((b, i) => { b.nr = i + 1; });
-const visible = () => BARS.filter(b => b.sets.includes(origin)).sort((a, b) => a.nr - b.nr);
+// Auswahl für den gewählten Startort, gezählt von seiner Seite aus: Nr. 1 liegt ihm am nächsten
+const visible = () => {
+  const v = BARS.filter(b => b.sets.includes(origin)).sort((a, b) => ratio(b) - ratio(a));
+  v.forEach((b, i) => { b.nr = i + 1; });
+  return v;
+};
 
 const stars = b => `<span class="stars"><span class="s" aria-hidden="true">★</span> ${de(b.rating)}<span class="sr"> von 5 Sternen</span></span>`;
 const doTimes = b => b.doClose ? `${esc(b.doOpen)}-${esc(b.doClose)}` : `ab ${esc(b.doOpen)}`;
@@ -362,9 +361,9 @@ const hinweis = b => b.hinweis ? `<p class="tiny">${esc(b.hinweis)}</p>` : '';
 const INTRO = 'Ein Ort, den noch keiner von uns kennt. Such dir einen aus und schreib mir die Nummer. Um die Reservierung kümmere ich mich.';
 const hero = () => `
   <header class="hero"><div class="wrap">
-    <p class="kicker">Donnerstag, 19.11.2026</p>
     <h1>Shisha as a Service</h1>
     <p class="intro">${INTRO}</p>
+    <p class="when"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Donnerstag, 19. November</p>
   </div></header>`;
 const serviceCheck = () => `
   <section class="svc" aria-labelledby="svc-title">
@@ -489,12 +488,12 @@ function renderB(app) {
     ${hero()}
     <main class="wrap">
       <h2 class="sec">Wo liegt die Mitte?</h2>
-      <p class="hint">Jede Bar sitzt dort auf der Strecke, wo sich die Fahrzeit für uns beide aufteilt. Nummer antippen springt zur Bar.</p>
+      <p class="hint">Jede Bar sitzt dort auf der Strecke, wo sich die Fahrzeit für uns beide aufteilt. Gezählt wird von dir aus, Nummer antippen springt zur Bar.</p>
       <div class="origin" role="group" aria-label="Wo startest du?">
         <span class="origin-lbl">Dein Start:</span>
         ${Object.entries(ORIGINS).map(([k, o]) => `<button type="button" class="origin-btn" data-origin="${k}" aria-pressed="${k === origin}">${o.name}</button>`).join('')}
       </div>
-      ${origin === 'ush' ? '<p class="hint">Ab Unterschleißheim tauschen Nr. 3 und 4 gegen Nr. 5 und 6, die näher an dir liegen. Deinen Heimweg nach Regensburg siehst du auf jeder Karte.</p>' : ''}
+      ${origin === 'ush' ? '<p class="hint">Ab Unterschleißheim zeige ich eine eigene Auswahl mit zwei Bars, die näher an dir liegen. Deinen Heimweg nach Regensburg siehst du auf jeder Karte.</p>' : ''}
       <div class="b-route">
         ${routeHorizontal()}
         ${routeVertical()}

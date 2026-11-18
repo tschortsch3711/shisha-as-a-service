@@ -10,7 +10,7 @@ Live: https://tschortsch3711.github.io/shisha-as-a-service/
 
 - Oben eine Strecke Freising ↔ Regensburg: Jede Bar sitzt dort, wo sich die Fahrzeit für beide aufteilt. Die Nummern laufen entlang dieser Strecke.
 - Umschalter „Dein Start“: Regensburg oder Unterschleißheim (Link direkt auf Unterschleißheim: `?ab=unterschleissheim`).
-- Ab Regensburg: MOG’ 68, Towers, Dejavu, Illyrian (Nr. 1–4). Ab Unterschleißheim: MOG’ 68, Towers, Helleaven (Erding), Zer021 (Neufahrn), mit Heimweg nach Regensburg. Jede Nummer ist eindeutig (1–6), welche Bars wo erscheinen, steht im Feld `sets`.
+- Ab Regensburg: Illyrian, Dejavu, Towers, MOG’ 68. Ab Unterschleißheim: Zer021, Towers, Helleaven, MOG’ 68, mit Heimweg nach Regensburg. Gezählt wird je Ansicht 1–4 vom Startort des Gegenübers aus; welche Bars wo erscheinen, steht im Feld `sets`.
 - Darunter die Karten, am Desktop nebeneinander (Zeilen über alle Karten ausgerichtet), auf dem Handy untereinander.
 - Ganz unten ein kleiner Service-Check zum Augenzwinkern.
 - Alle Daten stehen im Array `BARS` oben im Script von `index.html`.
